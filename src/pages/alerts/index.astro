@@ -1,0 +1,65 @@
+---
+import MagazineLayout from '../../layouts/MagazineLayout.astro';
+
+// v0 占位:突发消息手填。后续可以接微博热搜 / 工作室公告自动推
+type Alert = {
+  id: string;
+  publishedAt: string;   // ISO timestamp
+  level: 'urgent' | 'info' | 'positive';
+  title: string;
+  body?: string;
+  link?: string;
+};
+
+const alerts: Alert[] = [
+  // 待填:工作室声明 / 行程更改 / 突发好消息
+];
+
+const sorted = [...alerts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
+const levelMeta: Record<Alert['level'], { label: string; bg: string; fg: string }> = {
+  urgent: { label: '紧急', bg: '#C25B3F', fg: '#FAF5E6' },
+  info: { label: '通知', bg: '#8B6F47', fg: '#FAF5E6' },
+  positive: { label: '好消息', bg: '#E5A92D', fg: '#1a1a1a' },
+};
+---
+<MagazineLayout title="通知 · 十个勤天少年之家">
+  <section class="px-6 md:px-12 pt-12 pb-4">
+    <div class="max-w-3xl mx-auto">
+      <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-2">突发消息 · 共 {sorted.length} 条</p>
+      <h1 class="mag-serif text-3xl md:text-5xl text-[#121212] leading-tight">通知</h1>
+      <p class="mag-sans text-base text-[#3a3a3a] mt-4 leading-relaxed">
+        工作室声明、行程变动、突发好消息——比日报短,比微博更整理。
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 md:px-12 py-10">
+    <div class="max-w-3xl mx-auto">
+      {sorted.length === 0 ? (
+        <div class="bg-[#fdf6e3] border border-dashed border-[#e0c98c] rounded-lg p-10 text-center">
+          <p class="mag-serif text-xl text-[#5a4a2a] mb-2">还没有通知</p>
+          <p class="mag-sans text-sm text-[#7a6a4a]">编辑 <code class="bg-white px-2 py-0.5 rounded">src/pages/alerts/index.astro</code> 里的 <code class="bg-white px-2 py-0.5 rounded">alerts</code> 数组添加。</p>
+        </div>
+      ) : (
+        <ul class="space-y-6">
+          {sorted.map((a) => {
+            const m = levelMeta[a.level];
+            return (
+              <li class="border-l-4 pl-5 py-2" style={`border-color:${m.bg}`}>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs px-2 py-0.5 rounded font-medium" style={`background:${m.bg};color:${m.fg}`}>{m.label}</span>
+                  <span class="mag-sans text-xs text-[#7a6a4a] font-mono">{a.publishedAt.slice(0, 16).replace('T', ' ')}</span>
+                </div>
+                <h3 class="mag-serif text-lg text-[#121212] leading-snug">
+                  {a.link ? <a href={a.link} class="hover:mag-red underline underline-offset-2" target="_blank" rel="noopener">{a.title}</a> : a.title}
+                </h3>
+                {a.body && <p class="mag-sans text-sm text-[#3a3a3a] mt-2 leading-relaxed">{a.body}</p>}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  </section>
+</MagazineLayout>

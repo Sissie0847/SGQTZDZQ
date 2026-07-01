@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Sissie 到处 SeeSay',
+  description = 'AI PM Sissie 的 AI 日报 + 自造小工具 — 对标 Every.to,用中文跑通。',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- 字体:Source Serif 4 标题 + Inter 正文 + JetBrains Mono italic 副标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Instrument Serif:Every / Monologue 同款标题字体 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="relative min-h-screen overflow-x-hidden">
+    <!-- 多束扇形光,模仿 Every.to Monologue 的舞台射灯感 -->
+    <div class="spotlight">
+      <span style="--angle:-22deg; --w:40px; --o:0.10"></span>
+      <span style="--angle:-15deg; --w:55px; --o:0.18"></span>
+      <span style="--angle:-9deg; --w:30px; --o:0.12"></span>
+      <span style="--angle:-4deg; --w:70px; --o:0.28"></span>
+      <span style="--angle:2deg; --w:45px; --o:0.20"></span>
+      <span style="--angle:8deg; --w:80px; --o:0.32"></span>
+      <span style="--angle:14deg; --w:50px; --o:0.22"></span>
+      <span style="--angle:20deg; --w:35px; --o:0.13"></span>
+      <span style="--angle:26deg; --w:60px; --o:0.16"></span>
+    </div>
+
+    <!-- 顶部导航 -->
+    <header class="relative z-10 px-6 md:px-12 py-6 flex items-center justify-between">
+      <a href="/" class="text-sm tracking-[0.18em] uppercase text-[var(--color-ink-dim)] hover:text-[var(--color-accent)]">
+        Sissie · 到处 SeeSay
+      </a>
+      <nav class="flex gap-6 text-sm text-[var(--color-ink-dim)]">
+        <a href="/ai-daily">AI 日报</a>
+        <a href="/weekly">周报</a>
+        <a href="/made-by-sissie">Made by Sissie</a>
+        <a href="/about">关于</a>
+      </nav>
+    </header>
+
+    <main class="relative z-10">
+      <slot />
+    </main>
+
+    <!-- 引流 footer -->
+    <footer class="relative z-10 mt-32 border-t border-[var(--color-paper-line)] px-6 md:px-12 py-14">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+        <div>
+          <p class="subtitle-en mb-2">find me elsewhere</p>
+          <p class="headline-zh text-xl text-[var(--color-ink)]">在别的地方找我</p>
+        </div>
+        <div class="space-y-3">
+          <a href="https://www.xiaohongshu.com/" class="block text-[var(--color-ink)]">小红书 · @Sissie到处SeeSay <span class="text-[var(--color-ink-faint)]">↗</span></a>
+          <a href="#" class="block text-[var(--color-ink)]">公众号 · Sissie 的 AI 日报 <span class="text-[var(--color-ink-faint)]">↗</span></a>
+          <a href="#" class="block text-[var(--color-ink)]">微信 · 加好友进群 <span class="text-[var(--color-ink-faint)]">↗</span></a>
+        </div>
+        <div class="text-[var(--color-ink-faint)] text-xs space-y-1">
+          <p>© 2026 周诗洁 Sissie</p>
+          <p class="font-mono italic">made with curiosity · 一个菜鸟在练手</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '十个勤天 · 少年之家',
+  description = 'Memene 每天自动整理十个哥哥和助手号的更新,经济学人 magazine 版式呈现。日报 + 日历 + 通知 + 物料,一站汇总。',
+} = Astro.props;
+
+// 动态高亮当前 nav
+const path = Astro.url.pathname;
+const isActive = (p: string) => path === p || path.startsWith(p + '/');
+---
+<!doctype html>
+<html lang="zh-CN" class="magazine-html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 异步加载,避免国内访问 Google Fonts 阻塞 page load -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap"
+      />
+    </noscript>
+
+    <style is:global>
+      /* 米黄底 + 衬线,覆盖 dark 全站主题 */
+      html.magazine-html, html.magazine-html body {
+        background: #fdfbf5 !important;
+        color: #121212 !important;
+        font-family: "Source Serif 4", "Songti SC", "STSong", Georgia, serif;
+      }
+      html.magazine-html body::before {
+        display: none; /* 关掉夜间噪点 */
+      }
+      /* 主题色 = 麦穗金 #E5A92D。深红留作辅色 */
+      .mag-red { color: #E5A92D; }
+      .mag-bg-red { background: #E5A92D; }
+      .mag-serif { font-family: "Source Serif 4", "Songti SC", "STSong", Georgia, serif; }
+      .mag-sans { font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+      .mag-tab-active {
+        color: #E5A92D;
+        border-bottom: 3px solid #E5A92D;
+        padding-bottom: 6px;
+      }
+      .mag-tab {
+        color: #121212;
+        padding-bottom: 6px;
+        transition: color .15s;
+      }
+      .mag-tab:hover { color: #E5A92D; }
+
+      /* 封面顶 banner — 经济学人红方块的等效:麦穗金 */
+      .cover-banner {
+        background: #E5A92D;
+        color: #1a1a1a;
+        font-family: "Source Serif 4", "Songti SC", serif;
+        font-weight: 700;
+        font-style: italic;
+        padding: 4px 10px;
+        font-size: 1.05rem;
+        line-height: 1.05;
+        display: inline-block;
+      }
+      .cover-headline {
+        font-family: "Source Serif 4", "Songti SC", serif;
+        color: #1a1a1a;
+        font-size: 0.62rem;
+        line-height: 1.25;
+        border-bottom: 1px solid rgba(0,0,0,0.5);
+        padding-bottom: 2px;
+        margin-bottom: 3px;
+      }
+      .cover-word {
+        font-family: "Source Serif 4", "Songti SC", serif;
+        font-weight: 700;
+        font-style: italic;
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- 顶部 site-wide nav -->
+    <header class="border-b border-[#e0d8c4] px-6 md:px-12 py-4 flex items-center justify-between text-sm">
+      <a href="/" class="mag-serif italic font-semibold text-[1.1rem] text-[#121212] hover:mag-red">
+        十个勤天 · 少年之家
+      </a>
+      <nav class="flex gap-6 mag-sans text-[#3a3a3a]">
+        <a href="/ai-daily" class={isActive('/ai-daily') ? 'mag-red font-medium' : 'hover:mag-red'}>日报</a>
+        <a href="/calendar" class={isActive('/calendar') ? 'mag-red font-medium' : 'hover:mag-red'}>日历</a>
+        <a href="/alerts" class={isActive('/alerts') ? 'mag-red font-medium' : 'hover:mag-red'}>通知</a>
+        <a href="/materials" class={isActive('/materials') ? 'mag-red font-medium' : 'hover:mag-red'}>物料</a>
+        <a href="/about" class={isActive('/about') ? 'mag-red font-medium' : 'hover:mag-red'}>关于</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Magazine 风 footer -->
+    <footer class="mt-32 border-t border-[#e0d8c4] px-6 md:px-12 py-10 mag-sans text-sm text-[#5a5a5a]">
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
+        <div>十个勤天 · 少年之家 · 非官方粉丝站 · 数据来自 Memene 自动整理</div>
+        <div class="flex gap-4">
+          <a href="/" class="hover:mag-red">回到主页</a>
+          <a href="/about" class="hover:mag-red">关于</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

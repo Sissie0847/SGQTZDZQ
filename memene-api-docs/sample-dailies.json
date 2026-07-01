@@ -1,0 +1,165 @@
+{
+    "statusCode": 200,
+    "statusText": "OK",
+    "data": {
+        "totalCount": 266,
+        "historyRecords": [
+            {
+                "id": "114506083023716352",
+                "refSubscribePlanId": "cmcisv9sb00005gq9em0c6nau",
+                "date": "2026-06-03",
+                "timestamp": 1780442777613,
+                "summaryTitle": "\u9357\u4f77\u91dc\u9355\u3085\u3049_2026-06-03",
+                "contentSummary": "\u6d60\u5a43\u68e9\u7455\u4f80\u6908\n\u9357\u64b4\u77c3\u9422\u2541\u56ad\u9286\u5961top Missing You\u9286\u5a73ne Take\u7481\udcad\u7f01\u51a8\udcae\u3087\u5897\u951b\u5c83\u7e56\u5a09\u3221\u6437\u6d63\u6ec5\u01d4\u9286\udc82",
+                "planName": "\u9357\u4f77\u91dc\u9355\u3085\u3049",
+                "isFavorited": false,
+                "topTopicList": [
+                    {
+                        "index": 1,
+                        "topic": "\u9357\u64b4\u77c3\u9359\u621d\u7af7\u93c2\u7248\u74d5\u9286\u5961top Missing You\u9286\u5a73ne Take\u7481\udcad\u7f01\u51a8\udcae\u3087\u5897",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 2,
+                        "topic": "\u7ec9\u5d85\u6e74\u935a\u0447\u5f13\u9357\u64b3\udcae\uff45\u7af7\u9359\u509a\u59de\u95be\u8235\u6e24\u5bb8\ufe40\u54fa\u95ca\u5145\u7bb0\u947a\udc82",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 3,
+                        "topic": "\u6d63\u66df\u65e6\u59a4\u72b2\u5f2c\u6d93\u5e9b\udc80\u5a42\u67a9\u5a06\udca2\u6d63\u72b3\u579c\u6d94\u71b8\u69f8\u9286\u5b2d\u59ad\u9429\udcae\u7039\uff44\u7d36",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 4,
+                        "topic": "\u941c\u5b29\u7af4\u941d\u2541\u5f2c\u9354\u72ae\udc80\u5a42\u67a9\u5a06\udca2\u6d63\u72b3\u579c\u6d94\u71b8\u69f8\u9286\u5b2c\udcac\udcac\u934f\udcad\u701b\uff45\u7d11\u93be\udcad",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 5,
+                        "topic": "\u6963\udcad\u9357\udc931124\u9359\u98ce\u5e3f\u941f\u677f\u6d2f\u9359\u621d\u7af7\u6963\udcad\u9357\u64b4\u67ca\u9417\u2542\u67a1",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 6,
+                        "topic": "\u6d63\u66df\u65e6\u59a4\u72b2\u6097\u9359\u626e\udca2\u5ea3\u5896\u9413\u0445\u5896",
+                        "isRelated": false
+                    }
+                ],
+                "week": "\u93c4\u71b8\u6e61\u6d93\udc89",
+                "title": "\u9357\u64b4\u77c3\u9359\u621d\u7af7\u93c2\u7248\u74d5\u9286\u5961top Missing You\u9286\u5a73ne Take\u7481\udcad\u7f01\u51a8\udcae\u3087\u5897",
+                "avatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+                "appAvatar": null,
+                "totalCount": 10,
+                "relatedCount": 0,
+                "views": 6,
+                "userId": "8cfa43a5-e741-4593-9b85-c8aa20acc1bb",
+                "userName": "\u7ec0\u95f4\u534e\u6d94\u5b2e\u504a\u95ad\ufe42\u504a\u95ad\udca6",
+                "userAvatar": "http://yuansun-account-avatar.oss-cn-hangzhou.aliyuncs.com/newsdiy/8cfa43a5-e741-4593-9b85-c8aa20acc1bb_v15_670083d6-44c5-4fb5-a6cf-ebcab426399e.jpeg"
+            },
+            {
+                "id": "114146930757468160",
+                "refSubscribePlanId": "cmcisv9sb00005gq9em0c6nau",
+                "date": "2026-06-02",
+                "timestamp": 1780357149040,
+                "summaryTitle": "\u9357\u4f77\u91dc\u9355\u3085\u3049_2026-06-02",
+                "contentSummary": "\u6d60\u5a43\u68e9\u7455\u4f80\u6908\n\u6963\udcad\u9357\u64b6\udca5\u6fc6\u3047\u7039\u8dfa\u53da\u6d93\udc80\u8e47\udcab\u6d94\u6136\u7d1d\u6769\u6a39\u7b09\u8e47\u6a3f\u3003\u9427\u65a4\u7d1d\u6769\u6b11\u656f\u95b2\u5c84\u66b1\u9351\u70d8\u6f75\u9428\u52ed\u57cd\u93c8\u590c\u5063\u9422\u6ebf\udc80\udc82",
+                "planName": "\u9357\u4f77\u91dc\u9355\u3085\u3049",
+                "isFavorited": false,
+                "topTopicList": [
+                    {
+                        "index": 1,
+                        "topic": "\u7ec9\u5d85\u6e74\u935a\u0447\u5f13\u9357\u64b3\u5f42\u752f\u51a8\u53da\u6d93\udc80\u7ec1\u6fc8\udca6\udc8f",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 2,
+                        "topic": "\u9357\u64b4\u77c3\u9359\u621d\u7af7\u93c2\u7248\u74d5\u9286\u5961TOP MISSING YOU\u9286\u5b2c\u7c8c\u6d94\u72b2\udcae\u3088\udca7\u55db\udca2\u622f\u7d1d\u6d93\u6d2a\u511c\u5bb8\u70ba\udca6\u6828\u7d28\u934b\u6c2c\u566f\u6fb6\udc87",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 3,
+                        "topic": "\u6d63\u66df\u65e6\u59a4\udca05.31\u9356\u693e\u542b\u5a32\u8bf2\u59e9\u9365\u70ba\u3010",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 4,
+                        "topic": "\u6963\udcad\u9357\u63dceadyToTheTop\u922a\u2033\u8d30\u9365\u70b4\u7d28\u935e\u53d8\u7d30\u7039\u6a3a\udcae\udca3",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 5,
+                        "topic": "\u6963\udcad\u9357\u64b3\udcae\uff45\u7af7ReadyToTheTop\u922a\u2033\u8d30\u9365\u70b4\u7d28\u935e\u53d8\u7d30",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 6,
+                        "topic": "\u59dd\ufe3d\u773d\u59f9\u82a5\u6309\u95ca\u5145\u7bb0\u947a\udc82 \u941c\u5b29\u7af4\u941d\u2543\u5e47\u9366\udcba",
+                        "isRelated": false
+                    }
+                ],
+                "week": "\u93c4\u71b8\u6e61\u6d5c\udc8c",
+                "title": "\u7ec9\u5d85\u6e74\u935a\u0447\u5f13\u9357\u64b3\u5f42\u752f\u51a8\u53da\u6d93\udc80\u7ec1\u6fc8\udca6\udc8f",
+                "avatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+                "appAvatar": null,
+                "totalCount": 26,
+                "relatedCount": 0,
+                "views": 8,
+                "userId": "8cfa43a5-e741-4593-9b85-c8aa20acc1bb",
+                "userName": "\u7ec0\u95f4\u534e\u6d94\u5b2e\u504a\u95ad\ufe42\u504a\u95ad\udca6",
+                "userAvatar": "http://yuansun-account-avatar.oss-cn-hangzhou.aliyuncs.com/newsdiy/8cfa43a5-e741-4593-9b85-c8aa20acc1bb_v15_670083d6-44c5-4fb5-a6cf-ebcab426399e.jpeg"
+            },
+            {
+                "id": "113416438525460480",
+                "refSubscribePlanId": "cmcisv9sb00005gq9em0c6nau",
+                "date": "2026-05-31",
+                "timestamp": 1780182986120,
+                "summaryTitle": "\u9357\u4f77\u91dc\u9355\u3085\u3049_2026-05-31",
+                "contentSummary": "\u6d60\u5a43\u68e9\u7455\u4f80\u6908\n\u6963\udcad\u9357\u64bb\u74df\u695d\u517c\u5e13\u7f01\u51a9\u67ca\u59dd\u5c7b\udc80\u593ell Eyes On Me\u9286\u5b36\u7d1d\u93c6\u5b58\u774f\u59af\u2033\u7d21\u752f\u544a\u7b8d\u741b\uff43\udc80\udc82",
+                "planName": "\u9357\u4f77\u91dc\u9355\u3085\u3049",
+                "isFavorited": false,
+                "topTopicList": [
+                    {
+                        "index": 1,
+                        "topic": "\u6963\udcad\u9357\u64b4\u6bda\u59f9\u6941\u5e13\u7f01\u51a9\u67ca\u59dd\udc8c",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 2,
+                        "topic": "\u9357\u64b4\u77c32026K.E.Y\u5bb8\u2033\u6d16\u5a55\u65bf\u6571\u6d7c\u6c2d\u693f\u9354\udca8",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 3,
+                        "topic": "\u9357\u64b4\u77c32026K.E.Y\u5bb8\u2033\u6d16\u5a55\u65bf\u6571\u6d7c\u6c36\u511c\u5bb8\u70b5\u6553\u93c3\u30e9\u6aba\u7039\u6c2c\u6e80\u7eee\u5909\u7b23\u7ec2\u5fd3\u57c4",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 4,
+                        "topic": "\u941c\u5b29\u7af4\u941d\u2541\u4f10\u6d63\u6ec3\udcae\u3085\u6c28\u7ec9\u4f7a\u6553\u6960\u6c2d\u58c8\u741b\u5c7c\u8d1f\u9359\u621d\u7af7\u6d93\u30e6\udcad\uff45\uff10\u93c4\udc8e",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 5,
+                        "topic": "\u9357\u64b4\u77c3\u9359\u621d\u7af7\u59f9\u82a5\u573a\u947a\u535e\udca2\u51a8\u5400\u9498\u5fd5\u305c\u9429\u6391\udcae\uff44\u7d36\u9357\u6c2d\u6783",
+                        "isRelated": false
+                    },
+                    {
+                        "index": 6,
+                        "topic": "\u7ec9\u5d85\u6e74\u935a\u0442\u7d8d\u5a34\u2542\udca5\u72b2\u5f42\u752f\u51a8\u7568\u934f\u3128\udca7\u509b\u7d28\u934a\u00a4\udcae\udcae",
+                        "isRelated": false
+                    }
+                ],
+                "week": "\u93c4\u71b8\u6e61\u6fb6\udca9",
+                "title": "\u6963\udcad\u9357\u64b4\u6bda\u59f9\u6941\u5e13\u7f01\u51a9\u67ca\u59dd\udc8c",
+                "avatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+                "appAvatar": null,
+                "totalCount": 17,
+                "relatedCount": 0,
+                "views": 0,
+                "userId": "8cfa43a5-e741-4593-9b85-c8aa20acc1bb",
+                "userName": "\u7ec0\u95f4\u534e\u6d94\u5b2e\u504a\u95ad\ufe42\u504a\u95ad\udca6",
+                "userAvatar": "http://yuansun-account-avatar.oss-cn-hangzhou.aliyuncs.com/newsdiy/8cfa43a5-e741-4593-9b85-c8aa20acc1bb_v15_670083d6-44c5-4fb5-a6cf-ebcab426399e.jpeg"
+            }
+        ]
+    }
+}

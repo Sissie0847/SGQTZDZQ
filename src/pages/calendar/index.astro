@@ -1,0 +1,90 @@
+---
+import MagazineLayout from '../../layouts/MagazineLayout.astro';
+
+// v0 占位:活动日历手填。后续可以接 ICS 或单独的 events.ts
+type Event = {
+  date: string;     // YYYY-MM-DD
+  title: string;
+  type: '直播' | '综艺' | '演唱会' | '生日' | '活动' | '其他';
+  link?: string;
+  note?: string;
+};
+
+const events: Event[] = [
+  // 待填:从十个勤天工作室微博 / 助手号公告整理
+];
+
+const upcoming = events
+  .filter((e) => e.date >= new Date().toISOString().slice(0, 10))
+  .sort((a, b) => a.date.localeCompare(b.date));
+
+const past = events
+  .filter((e) => e.date < new Date().toISOString().slice(0, 10))
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 8);
+
+const typeColor: Record<Event['type'], string> = {
+  直播: '#C25B3F',
+  综艺: '#6B8E23',
+  演唱会: '#E5A92D',
+  生日: '#D95398',
+  活动: '#8B6F47',
+  其他: '#5a5a5a',
+};
+---
+<MagazineLayout title="日历 · 十个勤天少年之家">
+  <section class="px-6 md:px-12 pt-12 pb-4">
+    <div class="max-w-4xl mx-auto">
+      <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-2">活动日历 · {events.length} 项</p>
+      <h1 class="mag-serif text-3xl md:text-5xl text-[#121212] leading-tight">日历</h1>
+      <p class="mag-sans text-base text-[#3a3a3a] mt-4 max-w-2xl leading-relaxed">
+        十个哥哥接下来要上的综艺、要开的演唱会、要发的直播。手填,因为这种事 AI 摘要给不准。
+      </p>
+    </div>
+  </section>
+
+  {events.length === 0 ? (
+    <section class="px-6 md:px-12 py-16">
+      <div class="max-w-4xl mx-auto bg-[#fdf6e3] border border-dashed border-[#e0c98c] rounded-lg p-10 text-center">
+        <p class="mag-serif text-xl text-[#5a4a2a] mb-2">日历还没填</p>
+        <p class="mag-sans text-sm text-[#7a6a4a]">编辑 <code class="bg-white px-2 py-0.5 rounded">src/pages/calendar/index.astro</code> 里的 <code class="bg-white px-2 py-0.5 rounded">events</code> 数组,塞几条就能看到效果。</p>
+      </div>
+    </section>
+  ) : (
+    <section class="px-6 md:px-12 py-10">
+      <div class="max-w-4xl mx-auto">
+        {upcoming.length > 0 && (
+          <div class="mb-12">
+            <h2 class="mag-serif text-2xl text-[#121212] mb-6 border-b border-[#e0d8c4] pb-2">即将到来</h2>
+            <ul class="space-y-3">
+              {upcoming.map((e) => (
+                <li class="flex items-start gap-4 py-3 border-b border-[#f0e8d4]">
+                  <div class="mag-sans text-sm text-[#7a6a4a] w-24 flex-shrink-0 font-mono">{e.date}</div>
+                  <div class="text-xs px-2 py-0.5 rounded font-medium flex-shrink-0 text-white" style={`background:${typeColor[e.type]}`}>{e.type}</div>
+                  <div class="flex-1 min-w-0">
+                    <p class="mag-serif text-base text-[#121212]">{e.link ? <a href={e.link} class="hover:mag-red underline underline-offset-2" target="_blank" rel="noopener">{e.title}</a> : e.title}</p>
+                    {e.note && <p class="mag-sans text-xs text-[#7a6a4a] mt-1">{e.note}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {past.length > 0 && (
+          <div>
+            <h2 class="mag-serif text-2xl text-[#121212] mb-6 border-b border-[#e0d8c4] pb-2">已过去 · 近 8 项</h2>
+            <ul class="space-y-2 opacity-60">
+              {past.map((e) => (
+                <li class="flex items-start gap-4 py-2">
+                  <div class="mag-sans text-sm text-[#7a6a4a] w-24 flex-shrink-0 font-mono">{e.date}</div>
+                  <div class="text-xs px-2 py-0.5 rounded flex-shrink-0 text-white" style={`background:${typeColor[e.type]}`}>{e.type}</div>
+                  <div class="flex-1 min-w-0 mag-serif text-sm text-[#3a3a3a]">{e.title}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+</MagazineLayout>

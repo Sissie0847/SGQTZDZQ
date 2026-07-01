@@ -1,0 +1,48 @@
+---
+import MagazineLayout from '../layouts/MagazineLayout.astro';
+---
+<MagazineLayout title="关于 · 十个勤天少年之家" description="为什么有这个网站,数据怎么来,会不会侵权。">
+  <section class="px-6 md:px-12 pt-16 pb-16">
+    <div class="max-w-2xl mx-auto">
+      <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-2">about</p>
+      <h1 class="mag-serif text-4xl md:text-5xl text-[#121212] mb-10 leading-tight">关于本站</h1>
+
+      <div class="space-y-6 text-[#3a3a3a] leading-relaxed text-[1.02rem] mag-serif">
+        <p>
+          这是一个<span class="text-[#121212] font-medium">非官方</span>的十个勤天粉丝站,主理人是一个偶然刷到《种地吧》的菜鸟 AI PM。做这站不为流量,只为把每天分散在各路微博、公众号、视频号的消息,**一站汇总成"少年之家"**。
+        </p>
+
+        <h2 class="mag-serif text-2xl text-[#121212] mt-12 mb-3">数据怎么来的</h2>
+        <p>
+          网站后面接的是 <a href="https://platform.memene.cn" class="mag-red underline underline-offset-4" target="_blank" rel="noopener">Memene</a> — 一个 AI 资讯订阅平台。
+          我在 Memene 里建了"十个勤天"这个频道,订阅了十个哥哥和官方助手号的公众号。
+          Memene 每天把它们抓回来、读完、生成"今日要闻 + Top 话题",我用 API 拉回本站,经济学人 magazine 版式呈现。
+        </p>
+
+        <h2 class="mag-serif text-2xl text-[#121212] mt-12 mb-3">四个板块</h2>
+        <ul class="space-y-2 list-disc list-inside">
+          <li><a href="/ai-daily" class="text-[#121212] underline underline-offset-2 hover:mag-red">日报</a> — Memene 自动整理,每天 1 期</li>
+          <li><a href="/calendar" class="text-[#121212] underline underline-offset-2 hover:mag-red">日历</a> — 手填活动表(综艺、演唱会、直播)</li>
+          <li><a href="/alerts" class="text-[#121212] underline underline-offset-2 hover:mag-red">通知</a> — 工作室声明、突发消息</li>
+          <li><a href="/materials" class="text-[#121212] underline underline-offset-2 hover:mag-red">物料</a> — 歌单、团综、直拍、周边</li>
+        </ul>
+
+        <h2 class="mag-serif text-2xl text-[#121212] mt-12 mb-3">关于版权与态度</h2>
+        <p>
+          所有日报内容由 Memene 基于公开微信公众号文章自动生成,本站只做聚合展示,不二次发布原文。
+          所有物料链接均跳转到原始来源(QQ 音乐 / B 站 / 微博等)。
+          如哥哥们的工作室或合作方对内容有任何不适,请通过下方联系方式告知,会立刻下架。
+        </p>
+
+        <h2 class="mag-serif text-2xl text-[#121212] mt-12 mb-3">联系</h2>
+        <p>
+          技术问题 / 内容建议 / 撤稿请求 → 待填邮箱(主理人正在想用哪个)
+        </p>
+
+        <p class="mt-16 italic text-[#7a6a4a] text-sm">
+          "在田里长出来的,在田里能找到。" — 给这个站的一句话
+        </p>
+      </div>
+    </div>
+  </section>
+</MagazineLayout>

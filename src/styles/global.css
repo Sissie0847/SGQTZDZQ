@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Sissie 到处 SeeSay — 全局主题 =====
+   美术参考:Every.to / Monologue 产品页
+   - 黑底 + serif 大字 + 大量留白
+   - 中英双语并排,英文 italic 副标
+*/
+
+:root {
+  /* 字体 — Instrument Serif 是 Every/Monologue 同款英文标题字体,
+     中文 fallback 用宋体(Songti SC / STSong)保持衬线一致 */
+  --font-display: "Instrument Serif", "Source Serif 4", "Songti SC", "STSong", Georgia, serif;
+  --font-body: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", ui-monospace, monospace;
+
+  /* 配色 */
+  --color-ink: #ededed;
+  --color-ink-dim: #9a9a9a;
+  --color-ink-faint: #5e5e5e;
+  --color-paper: #0a0a0a;
+  --color-paper-card: #161616;
+  --color-paper-line: #2a2a2a;
+  --color-accent: #4ec9d6;
+  --color-accent-warm: #d4a373;
+}
+
+html, body {
+  background: #000;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 噪点背景(更密更脏,Every 那种胶片感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 1px;
+  opacity: 0.5;
+}
+
+/* ===== 顶光柱 — 多束扇形射灯(Every Monologue 同款) =====
+   每个 span = 一束细光,从画面顶部中心放射状扩散
+   不同 --angle / --w / --o 控制每束的角度、宽度、亮度
+   用 var(--angle) 倾斜 + linear-gradient 上亮下透 + blur 让光带柔和 */
+
+.spotlight {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  height: 110vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.spotlight > span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--w, 50px);
+  height: 100%;
+  margin-left: calc(var(--w, 50px) * -0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, var(--o, 0.2)) 0%,
+    rgba(255, 255, 255, calc(var(--o, 0.2) * 0.45)) 25%,
+    rgba(255, 255, 255, calc(var(--o, 0.2) * 0.18)) 55%,
+    transparent 85%
+  );
+  transform: rotate(var(--angle, 0deg));
+  transform-origin: 50% 0%;
+  filter: blur(6px);
+}
+
+/* 光源那个亮点(所有光束的共同起点) */
+.spotlight::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  margin-left: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.30) 22%,
+    rgba(255, 255, 255, 0.08) 45%,
+    transparent 70%
+  );
+  filter: blur(20px);
+}
+
+/* ===== 标题排版 ===== */
+
+/* 普通中文标题 — 纯白,Instrument Serif + 宋体 fallback */
+.headline-zh {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: var(--color-ink);
+}
+
+.headline-en {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1em;
+  color: var(--color-ink);
+}
+
+/* ===== 银色质感标题 — Every/Monologue 同款 =====
+   原理:渐变 + background-clip: text + text-fill-color: transparent
+   渐变方向 0deg(从下到上):底部银灰,中上段纯白,产生顶光打下的金属感
+   ⚠️ 只用在最大的 hero 标题上,因为整段会变 transparent,内部 span 的颜色无效 */
+
+.headline-silver {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  /* 抄 Monologue 的关键:50% 以上都纯白,只有底部一小段银灰
+     这样字主体看着就"亮"而不是"灰" */
+  background-image: linear-gradient(
+    0deg,
+    rgb(200, 200, 200) 0%,
+    rgb(255, 255, 255) 48%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 英文版稍紧凑 */
+.headline-silver-en {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1em;
+  background-image: linear-gradient(
+    0deg,
+    rgb(215, 215, 215) 0%,
+    rgb(255, 255, 255) 50%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subtitle-en {
+  font-family: var(--font-mono);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--color-ink-dim);
+  letter-spacing: 0.01em;
+}
+
+.subtitle-zh {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-ink-dim);
+  letter-spacing: 0.04em;
+}
+
+/* 邮票/胶囊小卡 */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px dashed var(--color-paper-line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-ink-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+a {
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--color-accent);
+}

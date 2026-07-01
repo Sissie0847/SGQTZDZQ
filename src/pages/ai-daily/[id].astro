@@ -1,0 +1,314 @@
+---
+import MagazineLayout from '../../layouts/MagazineLayout.astro';
+import { dailies, formatDateZh } from '../../data/dailies';
+import type { Daily } from '../../data/dailies';
+import { weibosByDate } from '../../data/weibos';
+import { accountsByUserId } from '../../data/accounts';
+
+export async function getStaticPaths() {
+  return dailies.map((d) => ({ params: { id: d.id }, props: { daily: d } }));
+}
+
+interface Props { daily: Daily }
+const { daily } = Astro.props;
+
+// 上下期(按日期排序,desc)
+const sorted = [...dailies].sort((a, b) => b.date.localeCompare(a.date));
+const currentIdx = sorted.findIndex((d) => d.id === daily.id);
+const newer = currentIdx > 0 ? sorted[currentIdx - 1] : null;
+const older = currentIdx < sorted.length - 1 ? sorted[currentIdx + 1] : null;
+
+const memeneFullUrl = `https://memene.cn/daily/${daily.id}?ref=shige-home`;
+const hiddenTopicCount = Math.max(0, (daily.topicCount ?? 0) - daily.topTopics.length);
+
+// 当天的微博原文数据(可能为空)
+const dayWeibos = weibosByDate[daily.date] || [];
+const hasWeibos = dayWeibos.length > 0;
+
+// fallback 配色(同 grid 卡)
+const fallbackBgs = ['#E5A92D', 'linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)', '#C25B3F', 'linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)', '#FAF5E6'];
+const fallbackColors = ['#1a1a1a', '#FAF5E6', '#FAF5E6', '#FAF5E6', '#3D2817'];
+const bg = daily.coverBg ?? fallbackBgs[currentIdx % fallbackBgs.length];
+const wordColor = daily.coverWordColor ?? fallbackColors[currentIdx % fallbackColors.length];
+const word = daily.coverWord ?? daily.topTopics?.[0]?.slice(0, 2) ?? '勤';
+
+// 大数字格式化:>=10000 用 w,>=1000 用千分位,否则原样
+function fmtCount(n: number): string {
+  if (n >= 10000) {
+    const w = (n / 10000).toFixed(n >= 100000 ? 0 : 1);
+    return `${w.replace(/\.0$/, '')}w`;
+  }
+  if (n >= 1000) return n.toLocaleString('en-US');
+  return String(n);
+}
+
+// 账号类型 badge 配置
+const KIND_META: Record<string, { label: string; color: string }> = {
+  official: { label: '官方', color: '#E5A92D' },
+  studio: { label: '工作室', color: '#8B6F47' },
+  fanclub: { label: '应援站', color: '#D95398' },
+  unknown: { label: '其他', color: '#7a6a4a' },
+};
+
+// 多图网格布局规则
+function gridClass(n: number): string {
+  if (n === 1) return 'max-w-md';
+  if (n === 2) return 'grid grid-cols-2 gap-2';
+  if (n === 3) return 'grid grid-cols-3 gap-2';
+  if (n === 4) return 'grid grid-cols-2 gap-2 max-w-md';
+  return 'grid grid-cols-3 gap-2';
+}
+
+// 微博详情链接(移动版,PC 也能打开)
+function weiboUrl(id: string): string {
+  return `https://m.weibo.cn/detail/${id}`;
+}
+---
+<MagazineLayout
+  title={`${daily.title} · 十个勤天日报 ${daily.date}`}
+  description={daily.snippet || daily.title}
+>
+  <!-- 顶部面包屑 + 上下期导航 -->
+  <section class="border-b border-[#e0d8c4] px-6 md:px-12">
+    <div class="max-w-5xl mx-auto flex items-center justify-between py-3 text-sm mag-sans">
+      <a href="/ai-daily" class="text-[#7a6a4a] hover:mag-red">← 回日报列表</a>
+      <div class="flex items-center gap-4">
+        {older && <a href={`/ai-daily/${older.id}`} class="text-[#3a3a3a] hover:mag-red">前一期 ↑</a>}
+        {newer && <a href={`/ai-daily/${newer.id}`} class="text-[#3a3a3a] hover:mag-red">↓ 后一期</a>}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero: 当期封面(放大版的 magazine 卡) -->
+  <section class="px-6 md:px-12 pt-12 pb-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[280px_1fr] gap-10 items-start">
+      <!-- 左:经济学人封面卡 -->
+      <div class="aspect-[3/4] relative overflow-hidden border border-[#1a1a1a]/10" style={`background: ${bg}`}>
+        <div class="absolute top-3 left-3 right-3 flex items-start gap-3 z-10">
+          <div class="cover-banner">十个勤天 日报</div>
+          <div class="flex-1 pt-0.5">
+            <p class="cover-headline">{daily.week ?? daily.sourceLabel}</p>
+            <p class="cover-headline border-b-0" style="color: rgba(0,0,0,0.7)">{daily.snippet.slice(0, 38)}{daily.snippet.length > 38 ? '…' : ''}</p>
+          </div>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center px-3">
+          <h2 class="cover-word text-[clamp(2.8rem,12cqw,6rem)]" style={`color: ${wordColor}; container-type: inline-size;`}>{word}</h2>
+        </div>
+        <div class="absolute bottom-2 left-3 right-3 flex justify-between items-end mag-sans text-[0.55rem] uppercase tracking-widest opacity-60" style={`color: ${wordColor};`}>
+          <span>十个勤天 日报</span>
+          <span>{formatDateZh(daily.date)}</span>
+        </div>
+      </div>
+
+      <!-- 右:本期元数据 + 一句话总结 -->
+      <div>
+        <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-3">
+          {formatDateZh(daily.date)}{daily.week ? ` · ${daily.week}` : ''}
+          {daily.views != null && <span class="ml-3 text-[#7a6a4a] normal-case tracking-normal">· 在 Memene 已被看 {daily.views} 次</span>}
+        </p>
+        <h1 class="mag-serif text-3xl md:text-4xl text-[#121212] leading-tight mb-6">
+          {daily.title}
+        </h1>
+        {daily.snippet && (
+          <div class="border-l-4 border-[#E5A92D] pl-5 py-2 mb-6">
+            <p class="mag-sans text-xs uppercase tracking-widest text-[#7a6a4a] mb-2">今日要闻 · Memene 摘</p>
+            <p class="mag-serif text-lg text-[#3a3a3a] leading-relaxed italic">{daily.snippet}</p>
+          </div>
+        )}
+        {hasWeibos ? (
+          <p class="mag-sans text-sm text-[#5a5a5a] leading-relaxed">
+            本期共 <strong class="text-[#121212]">{daily.topicCount ?? daily.topTopics.length}</strong> 个 Memene Top 话题,下方按时间倒序展示 <strong class="text-[#121212]">{dayWeibos.length}</strong> 条哥哥微博原文。
+          </p>
+        ) : (
+          <p class="mag-sans text-sm text-[#5a5a5a] leading-relaxed">
+            本期共 <strong class="text-[#121212]">{daily.topicCount ?? daily.topTopics.length}</strong> 个话题,下方展示 Top {daily.topTopics.length} 话题目录。
+            想看完整内容,跳 <a href={memeneFullUrl} target="_blank" rel="noopener" class="mag-red underline underline-offset-4">Memene 完整版 ↗</a>。
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {hasWeibos ? (
+    <>
+      <!-- Top Topics chip 行(Memene 整理的话题,缩成一行) -->
+      <section class="px-6 md:px-12 py-6 border-t border-[#e0d8c4] bg-[#fdfbf5]">
+        <div class="max-w-5xl mx-auto">
+          <p class="mag-sans text-xs uppercase tracking-widest text-[#7a6a4a] mb-3">Memene Top 话题速览</p>
+          <div class="flex flex-wrap gap-2">
+            {daily.topTopics.map((topic, i) => (
+              <span class="inline-flex items-center gap-2 bg-white border border-[#e0d8c4] rounded-full px-3 py-1 text-xs mag-sans">
+                <span class="mag-red font-mono tabular-nums">#{String(i + 1).padStart(2, '0')}</span>
+                <span class="text-[#3a3a3a]">{topic.length > 28 ? topic.slice(0, 28) + '…' : topic}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- 微博原文时间线 -->
+      <section class="px-6 md:px-12 py-12 border-t border-[#e0d8c4]">
+        <div class="max-w-3xl mx-auto">
+          <p class="mag-sans mag-red text-xs uppercase tracking-widest mb-2">原文 · 按时间倒序</p>
+          <h2 class="mag-serif text-3xl text-[#121212] mb-2">今日哥哥都发了啥</h2>
+          <p class="mag-sans text-sm text-[#7a6a4a] mb-10">共 {dayWeibos.length} 条 · 不改写 · 直接看原话</p>
+
+          <ol class="space-y-8">
+            {dayWeibos.map((w) => {
+              const meta = KIND_META[w.sourceKind] || KIND_META.unknown;
+              const hasImages = w.images && w.images.length > 0;
+              const account = accountsByUserId[w.userId];
+              const avatarUrl = account?.avatar;
+              const profileUrl = account?.profileUrl || `https://m.weibo.cn/u/${w.userId}`;
+              return (
+                <li class="border border-[#e0d8c4] bg-white p-5 md:p-6 hover:border-[#E5A92D] transition">
+                  <!-- 卡头:头像 + 账号名 + 时间 -->
+                  <div class="flex items-start gap-3 mb-3 pb-3 border-b border-[#f0e8d4]">
+                    <a href={profileUrl} target="_blank" rel="noreferrer noopener" referrerpolicy="no-referrer" class="flex-shrink-0 block w-11 h-11 rounded-full overflow-hidden border-2 ring-1 ring-[#e0d8c4]" style={`border-color:${meta.color}`}>
+                      {avatarUrl ? (
+                        <img
+                          src={avatarUrl}
+                          alt={w.sourceName}
+                          loading="lazy"
+                          referrerpolicy="no-referrer"
+                          class="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div class="w-full h-full flex items-center justify-center mag-serif text-sm font-bold text-white" style={`background:${meta.color}`}>{w.sourceName.slice(-2)}</div>
+                      )}
+                    </a>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <a href={profileUrl} target="_blank" rel="noreferrer noopener" class="mag-serif text-base font-semibold text-[#121212] hover:mag-red truncate">{w.sourceName}</a>
+                        {account?.verified && <span title="微博认证" class="text-[#E5A92D] text-xs">✓</span>}
+                        <span class="inline-block px-1.5 py-0.5 text-[10px] uppercase tracking-widest font-medium rounded-sm" style={`background:${meta.color}15;color:${meta.color}`}>
+                          {meta.label}
+                        </span>
+                      </div>
+                      <div class="mag-sans text-xs text-[#7a6a4a] mt-1">
+                        <span class="font-mono tabular-nums">{w.timeHm}</span>
+                        {w.regionName && <span class="ml-2">· {w.regionName}</span>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 转发标识 -->
+                  {w.isRetweet && (
+                    <p class="mag-sans text-xs text-[#7a6a4a] mb-2">🔁 转发微博</p>
+                  )}
+
+                  <!-- 原文(不改写,保留换行) -->
+                  <p class="mag-serif text-[15px] md:text-base text-[#1a1a1a] leading-[1.85] whitespace-pre-wrap break-words">{w.text}</p>
+
+                  <!-- 图片网格 -->
+                  {hasImages && (
+                    <div class={`mt-4 ${gridClass(w.images.length)}`}>
+                      {w.images.map((img) => (
+                        <a href={img.largeUrl} target="_blank" rel="noreferrer noopener" referrerpolicy="no-referrer" class={w.images.length === 1 ? 'block' : 'block aspect-square overflow-hidden bg-[#f5f0e0]'}>
+                          <img
+                            src={img.url}
+                            alt=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer"
+                            width={img.width}
+                            height={img.height}
+                            class={w.images.length === 1 ? 'max-w-full h-auto border border-[#e0d8c4]' : 'w-full h-full object-cover hover:scale-105 transition'}
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
+                  <!-- 卡尾:互动数 + 跳微博 -->
+                  <div class="flex items-center justify-between mt-4 pt-3 border-t border-[#f0e8d4]">
+                    <div class="flex items-center gap-4 mag-sans text-xs text-[#5a5a5a]">
+                      <span title="点赞" class="flex items-center gap-1">
+                        <span class="text-[#E5A92D]">♥</span>
+                        <span class="font-mono tabular-nums">{fmtCount(w.attitudesCount)}</span>
+                      </span>
+                      <span title="评论" class="flex items-center gap-1">
+                        <span>💬</span>
+                        <span class="font-mono tabular-nums">{fmtCount(w.commentsCount)}</span>
+                      </span>
+                      <span title="转发" class="flex items-center gap-1">
+                        <span>🔁</span>
+                        <span class="font-mono tabular-nums">{fmtCount(w.repostsCount)}</span>
+                      </span>
+                      {hasImages && (
+                        <span class="text-[#7a6a4a]">· {w.images.length} 图</span>
+                      )}
+                    </div>
+                    <a href={weiboUrl(w.id)} target="_blank" rel="noopener" class="mag-sans text-xs mag-red hover:underline underline-offset-2">
+                      去微博看原帖 ↗
+                    </a>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <!-- 兜底:看完整 Memene 版 -->
+          <div class="mt-12 p-5 bg-[#fdf6e3] border border-[#e0c98c] rounded">
+            <p class="mag-sans text-sm text-[#5a4a2a] leading-relaxed">
+              <strong>📌 想看 Memene 整理版?</strong> Memene 把今天的微博按事件聚类,生成"事件 + 来源 + 图片"的结构化呈现,
+              跳 <a href={memeneFullUrl} target="_blank" rel="noopener" class="mag-red underline underline-offset-4">Memene 完整版 ↗</a> 看。
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  ) : (
+    <!-- 没有原文数据的当期:旧版"Top 6 目录"作为 fallback -->
+    <section class="px-6 md:px-12 py-12 border-t border-[#e0d8c4] bg-[#fdfbf5]">
+      <div class="max-w-5xl mx-auto">
+        <p class="mag-sans mag-red text-xs uppercase tracking-widest mb-2">Top Topics · 目录</p>
+        <h2 class="mag-serif text-3xl text-[#121212] mb-2">今日 Top {daily.topTopics.length} 话题</h2>
+        <p class="mag-sans text-sm text-[#7a6a4a] mb-8">本期暂无原始微博数据,下方仅展示 Memene 摘的 Top 话题标题</p>
+        <ol class="space-y-0">
+          {daily.topTopics.map((topic, i) => (
+            <li class="border-b border-[#e0d8c4] last:border-b-0 py-5 flex items-start gap-6 group">
+              <span class="mag-serif text-4xl md:text-5xl italic font-bold text-[#E5A92D] flex-shrink-0 leading-none w-16 md:w-20 tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div class="flex-1 min-w-0 pt-2">
+                <h3 class="mag-serif text-lg md:text-xl text-[#121212] leading-snug">
+                  {topic}
+                </h3>
+                <p class="mag-sans text-xs text-[#7a6a4a] mt-2">
+                  <a href={memeneFullUrl} target="_blank" rel="noopener" class="hover:mag-red underline underline-offset-2">在 Memene 看完整正文 ↗</a>
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        {hiddenTopicCount > 0 && (
+          <div class="mt-8 p-5 bg-[#f3ead8] border border-[#e0d8c4] rounded">
+            <p class="mag-sans text-sm text-[#5a4a2a] leading-relaxed">
+              <strong>还有 {hiddenTopicCount} 个 topic 没在这展示</strong> — 完整 {daily.topicCount} 个话题在 <a href={memeneFullUrl} target="_blank" rel="noopener" class="mag-red underline underline-offset-4">Memene 完整版页面 ↗</a>。
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 上下期导航(底部加强版) -->
+  <section class="px-6 md:px-12 py-10 border-t border-[#e0d8c4]">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+      {older ? (
+        <a href={`/ai-daily/${older.id}`} class="group block border border-[#e0d8c4] p-5 hover:border-[#E5A92D]">
+          <p class="mag-sans text-xs uppercase tracking-widest text-[#7a6a4a] mb-2">↑ 前一期</p>
+          <p class="mag-sans mag-red text-xs mb-1">{formatDateZh(older.date)}</p>
+          <h3 class="mag-serif text-base text-[#121212] leading-snug">{older.title}</h3>
+        </a>
+      ) : <div></div>}
+      {newer ? (
+        <a href={`/ai-daily/${newer.id}`} class="group block border border-[#e0d8c4] p-5 hover:border-[#E5A92D] md:text-right">
+          <p class="mag-sans text-xs uppercase tracking-widest text-[#7a6a4a] mb-2">后一期 ↓</p>
+          <p class="mag-sans mag-red text-xs mb-1">{formatDateZh(newer.date)}</p>
+          <h3 class="mag-serif text-base text-[#121212] leading-snug">{newer.title}</h3>
+        </a>
+      ) : <div></div>}
+    </div>
+  </section>
+</MagazineLayout>

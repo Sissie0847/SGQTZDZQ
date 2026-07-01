@@ -1,0 +1,124 @@
+---
+import MagazineLayout from '../../layouts/MagazineLayout.astro';
+import { dailies, formatDateZh } from '../../data/dailies';
+
+const sorted = [...dailies].sort((a, b) => b.date.localeCompare(a.date));
+
+// 月份下拉,从数据里抽
+const monthsSet = new Set(sorted.map((d) => d.date.slice(0, 7)));
+const months = [...monthsSet].sort().reverse();
+
+// fallback 配色 — 田园色循环
+const fallbackBgs = ['#E5A92D', 'linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)', '#C25B3F', 'linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)', '#FAF5E6'];
+const fallbackColors = ['#1a1a1a', '#FAF5E6', '#FAF5E6', '#FAF5E6', '#3D2817'];
+---
+<MagazineLayout
+  title="十个勤天 · 日报"
+  description="Memene 每天自动整理十个哥哥和助手号的更新,经济学人 magazine 版式呈现。"
+>
+  <!-- 顶部 tabs + 月份 dropdown -->
+  <section class="border-b border-[#e0d8c4] px-6 md:px-12">
+    <div class="max-w-6xl mx-auto flex items-end justify-between flex-wrap gap-4 py-3">
+      <div class="flex gap-6 mag-serif text-[1.05rem] font-medium">
+        <a href="/ai-daily" class="mag-tab-active">最新</a>
+        <a href="/ai-daily/archive" class="mag-tab">历史归档</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <label for="month" class="mag-sans text-sm text-[#3a3a3a]">月份</label>
+        <select
+          id="month"
+          class="mag-sans border border-[#c8c4be] rounded px-3 py-1.5 text-sm bg-white text-[#121212] cursor-pointer"
+        >
+          {months.map((m) => {
+            const [y, mm] = m.split('-');
+            return <option value={m}>{y} 年 {parseInt(mm)} 月</option>;
+          })}
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- 当期介绍语 -->
+  <section class="px-6 md:px-12 pt-8 pb-4">
+    <div class="max-w-6xl mx-auto">
+      <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-2">每日一期 · 共 {sorted.length} 期</p>
+      <h1 class="mag-serif text-3xl md:text-5xl text-[#121212] leading-tight">
+        十个勤天 · 日报
+      </h1>
+      <p class="mag-sans text-base text-[#3a3a3a] mt-4 max-w-2xl leading-relaxed">
+        Memene 每天自动整理十个哥哥和助手号的更新,生成"今日要闻 + Top 话题"。
+        想看活动安排去 <a href="/calendar" class="mag-red underline underline-offset-4">日历</a>,
+        歌单团综在 <a href="/materials" class="mag-red underline underline-offset-4">物料</a>。
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid:每期日报一张 magazine 卡 -->
+  <section class="px-6 md:px-12 py-10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+      {sorted.map((d, idx) => {
+        const bg = d.coverBg ?? fallbackBgs[idx % fallbackBgs.length];
+        const wordColor = d.coverWordColor ?? fallbackColors[idx % fallbackColors.length];
+        const word = d.coverWord ?? d.topTopics?.[0]?.slice(0, 2) ?? '勤';
+        const snippetShort = d.snippet.length > 38 ? d.snippet.slice(0, 38) + '…' : d.snippet;
+        return (
+          <article class="flex flex-col">
+            <a href={`/ai-daily/${d.id}`} class="block group">
+              <div
+                class="relative aspect-[3/4] overflow-hidden border border-[#1a1a1a]/10"
+                style={`background: ${bg}`}
+              >
+                <!-- 顶部:金 banner + 副标题区 -->
+                <div class="absolute top-3 left-3 right-3 flex items-start gap-3 z-10">
+                  <div class="cover-banner">十个勤天 日报</div>
+                  <div class="flex-1 pt-0.5">
+                    <p class="cover-headline">{d.week ?? d.sourceLabel}</p>
+                    <p class="cover-headline border-b-0" style="color: rgba(0,0,0,0.7)">{snippetShort}</p>
+                  </div>
+                </div>
+
+                <!-- 中央大字 -->
+                <div class="absolute inset-0 flex items-center justify-center px-3">
+                  <h2
+                    class="cover-word text-[clamp(2.2rem,9cqw,5rem)]"
+                    style={`color: ${wordColor}; container-type: inline-size;`}
+                  >
+                    {word}
+                  </h2>
+                </div>
+
+                <!-- 底部:站名 + 日期 -->
+                <div
+                  class="absolute bottom-2 left-3 right-3 flex justify-between items-end mag-sans text-[0.55rem] uppercase tracking-widest opacity-60"
+                  style={`color: ${wordColor};`}
+                >
+                  <span>十个勤天 日报</span>
+                  <span>{formatDateZh(d.date)}</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 卡片下方:日期 + 标题 -->
+            <div class="pt-3 border-b border-[#e0d8c4] pb-4">
+              <p class="mag-sans mag-red text-[0.85rem] mb-1">{formatDateZh(d.date)}{d.week ? ` · ${d.week}` : ''}</p>
+              <a
+                href={`/ai-daily/${d.id}`}
+                class="mag-serif text-[1.15rem] leading-snug text-[#121212] hover:mag-red block"
+              >
+                {d.title}
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- 引流物料/日历 banner -->
+  <section class="bg-[#3D2817] text-[#FAF5E6] px-6 md:px-12 py-5">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 mag-sans text-sm">
+      <p>日报看完了?去 <a href="/calendar" class="underline underline-offset-4 hover:text-[#E5A92D]">日历</a> 看接下来的活动安排,或去 <a href="/materials" class="underline underline-offset-4 hover:text-[#E5A92D]">物料</a> 翻歌单和团综。</p>
+      <a href="/about" class="underline underline-offset-4 hover:text-[#E5A92D]">关于本站 →</a>
+    </div>
+  </section>
+</MagazineLayout>
