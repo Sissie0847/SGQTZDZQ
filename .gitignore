@@ -28,3 +28,5 @@ src/data/dailies-raw.json
 
 # vercel
 .vercel/
+
+.vercel

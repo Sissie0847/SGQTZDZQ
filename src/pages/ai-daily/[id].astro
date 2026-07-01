@@ -63,6 +63,11 @@ function gridClass(n: number): string {
 function weiboUrl(id: string): string {
   return `https://m.weibo.cn/detail/${id}`;
 }
+
+// sinaimg.cn 有防盗链,<img> 直连会 403,统一走 /api/img 服务端代理转发
+function proxyImg(url: string): string {
+  return `/api/img?u=${encodeURIComponent(url)}`;
+}
 ---
 <MagazineLayout
   title={`${daily.title} · 十个勤天日报 ${daily.date}`}
@@ -167,10 +172,9 @@ function weiboUrl(id: string): string {
                     <a href={profileUrl} target="_blank" rel="noreferrer noopener" referrerpolicy="no-referrer" class="flex-shrink-0 block w-11 h-11 rounded-full overflow-hidden border-2 ring-1 ring-[#e0d8c4]" style={`border-color:${meta.color}`}>
                       {avatarUrl ? (
                         <img
-                          src={avatarUrl}
+                          src={proxyImg(avatarUrl)}
                           alt={w.sourceName}
                           loading="lazy"
-                          referrerpolicy="no-referrer"
                           class="w-full h-full object-cover"
                         />
                       ) : (
@@ -204,12 +208,11 @@ function weiboUrl(id: string): string {
                   {hasImages && (
                     <div class={`mt-4 ${gridClass(w.images.length)}`}>
                       {w.images.map((img) => (
-                        <a href={img.largeUrl} target="_blank" rel="noreferrer noopener" referrerpolicy="no-referrer" class={w.images.length === 1 ? 'block' : 'block aspect-square overflow-hidden bg-[#f5f0e0]'}>
+                        <a href={proxyImg(img.largeUrl)} target="_blank" rel="noreferrer noopener" class={w.images.length === 1 ? 'block' : 'block aspect-square overflow-hidden bg-[#f5f0e0]'}>
                           <img
-                            src={img.url}
+                            src={proxyImg(img.url)}
                             alt=""
                             loading="lazy"
-                            referrerpolicy="no-referrer"
                             width={img.width}
                             height={img.height}
                             class={w.images.length === 1 ? 'max-w-full h-auto border border-[#e0d8c4]' : 'w-full h-full object-cover hover:scale-105 transition'}
