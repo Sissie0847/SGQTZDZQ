@@ -2,7 +2,7 @@
 import MagazineLayout from '../../layouts/MagazineLayout.astro';
 
 const REPO_URL = 'https://github.com/IKUN2788/weibochaohuaqiandao';
-const ZIP_URL = 'https://github.com/IKUN2788/weibochaohuaqiandao/archive/refs/heads/main.zip';
+const ZIP_URL = '/downloads/chaohua-checkin.zip';
 const PYTHON_URL = 'https://www.python.org/downloads/';
 ---
 <MagazineLayout
@@ -63,12 +63,11 @@ const PYTHON_URL = 'https://www.python.org/downloads/';
             </a>
           </div>
           <p class="text-xs text-[#7a6a4a] mt-2">
-            工具来自开源项目 <a href={REPO_URL} target="_blank" rel="noopener" class="mag-red underline underline-offset-2">IKUN2788/weibochaohuaqiandao</a>,不是我们写的,我们只是帮忙测过一遍、整理了教程。
+            工具原版来自开源项目 <a href={REPO_URL} target="_blank" rel="noopener" class="mag-red underline underline-offset-2">IKUN2788/weibochaohuaqiandao</a>,不是我们写的。我们测试时发现一个会导致拉不到超话列表的 bug,已经修好打包成这份,直接用就行,不用再手动改代码。
           </p>
         </li>
         <li>
-          <strong>解压</strong>——下载完的 zip 文件右键"全部解压",打开解压出来的文件夹,再打开里面的
-          <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">微博超话一键签到</code> 子文件夹。
+          <strong>解压</strong>——下载完的 zip 文件右键"全部解压",打开解压出来的文件夹,里面就是接下来要用的两个文件。
         </li>
         <li>
           <strong>打开命令行</strong>——在这个文件夹的地址栏(顶部路径那一栏)点一下,清空后输入 <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">cmd</code>,回车,会弹出一个黑色命令行窗口,并且已经自动定位到这个文件夹了。
@@ -78,20 +77,6 @@ const PYTHON_URL = 'https://www.python.org/downloads/';
           <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto">
             pip install -r requirements.txt
           </div>
-        </li>
-        <li>
-          <strong>已知小问题,顺手改一下</strong>——这个工具原版有个小 bug:第一次拉超话列表时会拉不到数据(卡在"获取超话列表失败")。用记事本打开文件夹里的
-          <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">Weibo_chaohua_Check in.py</code>,
-          用记事本的"查找"(Ctrl+F)搜索 <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">since_id</code>,找到下面这一段:
-          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto whitespace-pre">{`params = {
-    "containerid": "100803_-_followsuper",
-    "since_id": "{\\"manage\\":\\"\\",\\"follow\\":\\"1022:1008081de9a5e2ea19a724e8917330088b5e16\\",\\"page\\":1}"
-}`}</div>
-          改成:
-          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto whitespace-pre">{`params = {
-    "containerid": "100803_-_followsuper",
-}`}</div>
-          save 一下(Ctrl+S)就行。<span class="text-[#7a6a4a]">(原因:原作者把自己账号的分页游标写死在代码里了,别人的账号对不上就拉不到数据。)</span>
         </li>
         <li>
           <strong>运行</strong>——回到刚才那个黑色命令行窗口,粘贴下面这行,回车:
