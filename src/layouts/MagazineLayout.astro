@@ -96,6 +96,119 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
         line-height: 0.9;
         text-align: center;
       }
+      .image-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: grid;
+        place-items: center;
+        padding: clamp(12px, 3vw, 32px);
+        background: rgba(18, 18, 18, 0.88);
+        backdrop-filter: blur(10px);
+      }
+      .image-lightbox[hidden] {
+        display: none !important;
+      }
+      .image-lightbox__stage {
+        position: relative;
+        width: min(100%, 1120px);
+        height: min(100%, 86vh);
+        display: grid;
+        place-items: center;
+      }
+      .image-lightbox__image {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border: 1px solid rgba(253, 251, 245, 0.22);
+        background: #121212;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      }
+      .image-lightbox__close,
+      .image-lightbox__nav {
+        border: 1px solid rgba(253, 251, 245, 0.3);
+        background: rgba(253, 251, 245, 0.92);
+        color: #121212;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: transform .15s, background .15s, opacity .15s;
+      }
+      .image-lightbox__close:hover,
+      .image-lightbox__nav:hover {
+        background: #E5A92D;
+        transform: translateY(-1px);
+      }
+      .image-lightbox__close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        font-size: 28px;
+        line-height: 1;
+      }
+      .image-lightbox__nav {
+        position: absolute;
+        top: 50%;
+        width: 44px;
+        height: 58px;
+        margin-top: -29px;
+        border-radius: 6px;
+        font-size: 34px;
+        line-height: 1;
+      }
+      .image-lightbox__nav[disabled] {
+        opacity: .35;
+        pointer-events: none;
+      }
+      .image-lightbox__prev {
+        left: 14px;
+      }
+      .image-lightbox__next {
+        right: 14px;
+      }
+      .image-lightbox__caption {
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        max-width: min(92vw, 720px);
+        padding: 7px 12px;
+        border: 1px solid rgba(253, 251, 245, 0.18);
+        background: rgba(18, 18, 18, 0.62);
+        color: #fdfbf5;
+        font-size: 12px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      @media (max-width: 640px) {
+        .image-lightbox {
+          padding: 8px;
+        }
+        .image-lightbox__stage {
+          height: 82vh;
+        }
+        .image-lightbox__close {
+          top: 10px;
+          right: 10px;
+          width: 38px;
+          height: 38px;
+        }
+        .image-lightbox__nav {
+          width: 38px;
+          height: 52px;
+        }
+        .image-lightbox__prev {
+          left: 10px;
+        }
+        .image-lightbox__next {
+          right: 10px;
+        }
+      }
     </style>
   </head>
   <body class="min-h-screen">
@@ -109,6 +222,7 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
         <a href="/calendar" class={isActive('/calendar') ? 'mag-red font-medium' : 'hover:mag-red'}>日历</a>
         <a href="/alerts" class={isActive('/alerts') ? 'mag-red font-medium' : 'hover:mag-red'}>通知</a>
         <a href="/materials" class={isActive('/materials') ? 'mag-red font-medium' : 'hover:mag-red'}>物料</a>
+        <a href="/tools/chaohua-checkin" class={isActive('/tools') ? 'mag-red font-medium' : 'hover:mag-red'}>工具</a>
         <a href="/about" class={isActive('/about') ? 'mag-red font-medium' : 'hover:mag-red'}>关于</a>
       </nav>
     </header>
@@ -127,5 +241,93 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
         </div>
       </div>
     </footer>
+
+    <div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" hidden>
+      <button class="image-lightbox__close" type="button" data-lightbox-close aria-label="Close image">&times;</button>
+      <button class="image-lightbox__nav image-lightbox__prev" type="button" data-lightbox-prev aria-label="Previous image">&lsaquo;</button>
+      <div class="image-lightbox__stage" data-lightbox-backdrop>
+        <img class="image-lightbox__image" data-lightbox-image alt="" />
+        <div class="image-lightbox__caption mag-sans" data-lightbox-caption hidden></div>
+      </div>
+      <button class="image-lightbox__nav image-lightbox__next" type="button" data-lightbox-next aria-label="Next image">&rsaquo;</button>
+    </div>
+
+    <script>
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImage = lightbox?.querySelector('[data-lightbox-image]');
+      const lightboxCaption = lightbox?.querySelector('[data-lightbox-caption]');
+      const closeButton = lightbox?.querySelector('[data-lightbox-close]');
+      const prevButton = lightbox?.querySelector('[data-lightbox-prev]');
+      const nextButton = lightbox?.querySelector('[data-lightbox-next]');
+      const backdrop = lightbox?.querySelector('[data-lightbox-backdrop]');
+      let imageLinks = [];
+      let activeIndex = 0;
+
+      function collectImageLinks() {
+        imageLinks = Array.from(document.querySelectorAll('a[data-image-modal="true"]'));
+      }
+
+      function updateLightbox() {
+        const link = imageLinks[activeIndex];
+        if (!link || !lightbox || !lightboxImage) return;
+
+        const caption = link.getAttribute('data-image-caption') || '';
+        lightboxImage.setAttribute('src', link.getAttribute('href') || '');
+        lightboxImage.setAttribute('alt', caption);
+
+        if (lightboxCaption) {
+          lightboxCaption.textContent = imageLinks.length > 1
+            ? `${caption} (${activeIndex + 1}/${imageLinks.length})`
+            : caption;
+          lightboxCaption.toggleAttribute('hidden', !lightboxCaption.textContent);
+        }
+
+        if (prevButton) prevButton.toggleAttribute('disabled', imageLinks.length <= 1);
+        if (nextButton) nextButton.toggleAttribute('disabled', imageLinks.length <= 1);
+      }
+
+      function openLightbox(index) {
+        if (!lightbox) return;
+        activeIndex = index;
+        updateLightbox();
+        lightbox.removeAttribute('hidden');
+        document.documentElement.style.overflow = 'hidden';
+        closeButton?.focus();
+      }
+
+      function closeLightbox() {
+        if (!lightbox || !lightboxImage) return;
+        lightbox.setAttribute('hidden', '');
+        lightboxImage.removeAttribute('src');
+        document.documentElement.style.overflow = '';
+      }
+
+      function showOffset(offset) {
+        if (imageLinks.length <= 1) return;
+        activeIndex = (activeIndex + offset + imageLinks.length) % imageLinks.length;
+        updateLightbox();
+      }
+
+      collectImageLinks();
+      imageLinks.forEach((link, index) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          openLightbox(index);
+        });
+      });
+
+      closeButton?.addEventListener('click', closeLightbox);
+      prevButton?.addEventListener('click', () => showOffset(-1));
+      nextButton?.addEventListener('click', () => showOffset(1));
+      backdrop?.addEventListener('click', (event) => {
+        if (event.target === backdrop) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox || lightbox.hasAttribute('hidden')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') showOffset(-1);
+        if (event.key === 'ArrowRight') showOffset(1);
+      });
+    </script>
   </body>
 </html>

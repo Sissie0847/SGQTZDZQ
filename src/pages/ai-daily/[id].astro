@@ -208,7 +208,14 @@ function proxyImg(url: string): string {
                   {hasImages && (
                     <div class={`mt-4 ${gridClass(w.images.length)}`}>
                       {w.images.map((img) => (
-                        <a href={proxyImg(img.largeUrl)} target="_blank" rel="noreferrer noopener" class={w.images.length === 1 ? 'block' : 'block aspect-square overflow-hidden bg-[#f5f0e0]'}>
+                        <a
+                          href={proxyImg(img.largeUrl)}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          data-image-modal="true"
+                          data-image-caption={`${w.sourceName} · ${w.timeHm}`}
+                          class={w.images.length === 1 ? 'block cursor-zoom-in' : 'block aspect-square overflow-hidden bg-[#f5f0e0] cursor-zoom-in'}
+                        >
                           <img
                             src={proxyImg(img.url)}
                             alt=""

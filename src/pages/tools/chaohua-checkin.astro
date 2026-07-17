@@ -1,0 +1,126 @@
+---
+import MagazineLayout from '../../layouts/MagazineLayout.astro';
+
+const REPO_URL = 'https://github.com/IKUN2788/weibochaohuaqiandao';
+const ZIP_URL = 'https://github.com/IKUN2788/weibochaohuaqiandao/archive/refs/heads/main.zip';
+const PYTHON_URL = 'https://www.python.org/downloads/';
+---
+<MagazineLayout
+  title="超话签到小助手 · 十个勤天少年之家"
+  description="手把手教你在自己电脑上装一个微博超话自动签到工具,登录凭据只留在你自己电脑上。"
+>
+  <section class="px-6 md:px-12 pt-12 pb-4">
+    <div class="max-w-3xl mx-auto">
+      <p class="mag-sans mag-red text-sm uppercase tracking-widest mb-2">追星工具 · 超话签到</p>
+      <h1 class="mag-serif text-3xl md:text-5xl text-[#121212] leading-tight">超话签到小助手</h1>
+      <p class="mag-sans text-base text-[#3a3a3a] mt-4 leading-relaxed">
+        每天手动给关注的超话一个个点签到太麻烦?这里教你在<strong>自己电脑上</strong>装一个免费开源小工具,登录一次,一键给关注的超话签到。
+      </p>
+    </div>
+  </section>
+
+  <!-- 诚实的风险声明,放最显眼的位置 -->
+  <section class="px-6 md:px-12 pb-8">
+    <div class="max-w-3xl mx-auto bg-[#fdf6e3] border border-[#e0c98c] rounded-lg p-6">
+      <p class="mag-serif text-lg text-[#5a4a2a] mb-3">⚠️ 用之前看这几条</p>
+      <ul class="mag-sans text-sm text-[#5a4a2a] leading-relaxed space-y-2 list-disc pl-5">
+        <li><strong>这不是微博官方功能</strong>,是网友逆向出来的第三方工具,微博官方明确不允许第三方工具自动签到。</li>
+        <li>装在<strong>你自己的电脑上、用你自己的微博账号登录</strong>,登录凭据只存在你本机的文件夹里,不会经过十个勤天少年之家的服务器,我们也拿不到你的账号信息。</li>
+        <li>有账号被限流/要求重新登录的风险——实测连续签到几个超话后,有概率被要求重新扫码登录,不保证一次能签完所有关注的超话。</li>
+        <li>要不要用、后果自己承担,我们只负责教怎么装。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 准备工作 -->
+  <section class="px-6 md:px-12 py-8 border-t border-[#e0d8c4]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="mag-serif text-2xl text-[#121212] mb-4">准备工作</h2>
+      <ol class="mag-sans text-sm text-[#3a3a3a] leading-relaxed space-y-4 list-decimal pl-5">
+        <li>
+          <strong>装 Python</strong>(如果电脑上已经有就跳过)——去
+          <a href={PYTHON_URL} target="_blank" rel="noopener" class="mag-red underline underline-offset-2">python.org 官网下载</a>
+          ,下载最新版安装包,双击安装。
+          <div class="mt-2 bg-white border border-[#e0d8c4] rounded p-3 text-[#C25B3F]">
+            🔑 关键一步:安装界面最下面有个 <strong>"Add python.exe to PATH"</strong> 勾选框,一定要勾上!不勾后面命令行会找不到 python。
+          </div>
+        </li>
+        <li>确认电脑上装了 <strong>Chrome 浏览器</strong>(登录要用它弹一个真实浏览器窗口给你扫码)。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 安装步骤 -->
+  <section class="px-6 md:px-12 py-8 border-t border-[#e0d8c4] bg-[#fdfbf5]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="mag-serif text-2xl text-[#121212] mb-4">安装步骤</h2>
+      <ol class="mag-sans text-sm text-[#3a3a3a] leading-relaxed space-y-6 list-decimal pl-5">
+        <li>
+          <strong>下载工具</strong>——点这个按钮下载 zip 包:
+          <div class="mt-2">
+            <a href={ZIP_URL} class="inline-block bg-[#E5A92D] text-[#1a1a1a] mag-sans text-sm font-medium px-4 py-2 rounded hover:opacity-90">
+              下载超话签到小助手(zip)↓
+            </a>
+          </div>
+          <p class="text-xs text-[#7a6a4a] mt-2">
+            工具来自开源项目 <a href={REPO_URL} target="_blank" rel="noopener" class="mag-red underline underline-offset-2">IKUN2788/weibochaohuaqiandao</a>,不是我们写的,我们只是帮忙测过一遍、整理了教程。
+          </p>
+        </li>
+        <li>
+          <strong>解压</strong>——下载完的 zip 文件右键"全部解压",打开解压出来的文件夹,再打开里面的
+          <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">微博超话一键签到</code> 子文件夹。
+        </li>
+        <li>
+          <strong>打开命令行</strong>——在这个文件夹的地址栏(顶部路径那一栏)点一下,清空后输入 <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">cmd</code>,回车,会弹出一个黑色命令行窗口,并且已经自动定位到这个文件夹了。
+        </li>
+        <li>
+          <strong>装依赖</strong>——在弹出的黑色窗口里粘贴下面这行,回车,等它跑完(可能要一两分钟):
+          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto">
+            pip install -r requirements.txt
+          </div>
+        </li>
+        <li>
+          <strong>已知小问题,顺手改一下</strong>——这个工具原版有个小 bug:第一次拉超话列表时会拉不到数据(卡在"获取超话列表失败")。用记事本打开文件夹里的
+          <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">Weibo_chaohua_Check in.py</code>,
+          用记事本的"查找"(Ctrl+F)搜索 <code class="bg-white px-1.5 py-0.5 rounded border border-[#e0d8c4]">since_id</code>,找到下面这一段:
+          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto whitespace-pre">{`params = {
+    "containerid": "100803_-_followsuper",
+    "since_id": "{\\"manage\\":\\"\\",\\"follow\\":\\"1022:1008081de9a5e2ea19a724e8917330088b5e16\\",\\"page\\":1}"
+}`}</div>
+          改成:
+          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto whitespace-pre">{`params = {
+    "containerid": "100803_-_followsuper",
+}`}</div>
+          save 一下(Ctrl+S)就行。<span class="text-[#7a6a4a]">(原因:原作者把自己账号的分页游标写死在代码里了,别人的账号对不上就拉不到数据。)</span>
+        </li>
+        <li>
+          <strong>运行</strong>——回到刚才那个黑色命令行窗口,粘贴下面这行,回车:
+          <div class="mt-2 bg-[#1a1a1a] text-[#e5e5e5] rounded p-3 font-mono text-xs overflow-x-auto">
+            python "Weibo_chaohua_Check in.py"
+          </div>
+          会弹出一个工具窗口。
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 使用方式 -->
+  <section class="px-6 md:px-12 py-8 border-t border-[#e0d8c4]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="mag-serif text-2xl text-[#121212] mb-4">怎么用</h2>
+      <ol class="mag-sans text-sm text-[#3a3a3a] leading-relaxed space-y-3 list-decimal pl-5">
+        <li>点窗口里的登录按钮,会弹出一个浏览器窗口显示二维码,拿<strong>手机微博 App</strong>扫码确认。</li>
+        <li>登录成功后,点签到按钮,它会自动挨个给你关注的超话签到,窗口里能看到进度。</li>
+        <li>
+          <strong>每天要重新打开点一下</strong>——目前没法做到完全自动定时运行:登录扫码必须你手机参与,没法省略;而且就算登录有效,连续签到几个后有概率被要求重新登录,所以更适合当成"每天手动点一下、比一个个点快很多"的效率工具,而不是"装完就再也不用管"的全自动系统。
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="px-6 md:px-12 py-10 border-t border-[#e0d8c4]">
+    <div class="max-w-3xl mx-auto text-center">
+      <a href="/" class="mag-sans text-sm mag-red hover:underline underline-offset-4">← 回十个勤天少年之家首页</a>
+    </div>
+  </section>
+</MagazineLayout>
