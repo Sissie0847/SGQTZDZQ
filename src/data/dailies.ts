@@ -1,6 +1,6 @@
 // 自动生成 - 来源 Memene API /v1/meme/dailySummaries
 // 重新拉取: npm run fetch:daily
-// 生成时间: 2026-07-19T16:10:35.046Z
+// 生成时间: 2026-07-24T16:49:43.137Z
 
 export type Daily = {
   id: string;
@@ -19,6 +19,116 @@ export type Daily = {
 };
 
 export const dailies: Daily[] = [
+  {
+    "id": "132987969349877760",
+    "date": "2026-07-24",
+    "week": "星期五",
+    "title": "李昊将于8月1日参加微博文化交流之夜马来西亚站",
+    "snippet": "李昊8月1日赴马来西亚参加微博文化交流之夜。",
+    "topTopics": [
+      "李昊将于8月1日参加微博文化交流之夜马来西亚站",
+      "李昊香港演唱会倒计时",
+      "赵小童广州排练间隙",
+      "跳过：纯预告帖文",
+      "无法提取有效信息",
+      "卓沅南京演唱会收官预告广州站"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 1,
+    "topicCount": 17,
+    "coverWord": "李昊",
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
+  },
+  {
+    "id": "132624859032190976",
+    "date": "2026-07-23",
+    "week": "星期四",
+    "title": "李昊工作室分享香港演唱会排练动态",
+    "snippet": "李昊正忙香港红馆演唱会排练，无声排练照释出，有声版现场见。",
+    "topTopics": [
+      "李昊工作室分享香港演唱会排练动态",
+      "喜欢你我也是第六季开播推广",
+      "何浩楠新歌《KICK》",
+      "李昊感恩前辈帮助，期待7月活动",
+      "赵小童分享演唱会照片",
+      "赵小童发布“童步记录”节目后台花絮"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 0,
+    "topicCount": 15,
+    "coverWord": "李昊",
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
+  },
+  {
+    "id": "132261386645405696",
+    "date": "2026-07-22",
+    "week": "星期三",
+    "title": "何浩楠发布《花样年华》粤语台词视频",
+    "snippet": "何浩楠发视频，用粤语重现《花样年华》经典台词。",
+    "topTopics": [
+      "何浩楠发布《花样年华》粤语台词视频",
+      "李昊工作室发布李昊跳舞Vlog",
+      "王一珩重庆哦啦音乐节vlog发布",
+      "李昊分享干饭日常Part2",
+      "种地吧赵小童发布世界杯之旅Vlog",
+      "赵小童发布第一批Live碎片"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 0,
+    "topicCount": 10,
+    "coverWord": "何浩",
+    "coverBg": "#C25B3F",
+    "coverWordColor": "#FAF5E6"
+  },
+  {
+    "id": "131899071303516160",
+    "date": "2026-07-21",
+    "week": "星期二",
+    "title": "蒋敦豪发布新歌《三分钟后一定睡》",
+    "snippet": "蒋敦豪新歌《三分钟后一定睡》凌晨上线，多平台可听。",
+    "topTopics": [
+      "蒋敦豪发布新歌《三分钟后一定睡》",
+      "种地吧赵小童回到快乐老家",
+      "种地吧蒋敦豪感谢广州演出并公布新歌上线",
+      "微博用户蒋敦豪Official宣布十个勤天巡回演唱会广州站第三日",
+      "鹭卓发布广州巡回演唱会安排",
+      "李昊工作室发布港风主题营业博文"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 0,
+    "topicCount": 18,
+    "coverWord": "蒋敦",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
+    "coverWordColor": "#FAF5E6"
+  },
+  {
+    "id": "131538056686600192",
+    "date": "2026-07-20",
+    "week": "星期一",
+    "title": "何浩楠广州演唱会次日动态",
+    "snippet": "何浩楠广州演唱会次日嘟嘴玩泡沫机，状态开心。",
+    "topTopics": [
+      "何浩楠广州演唱会次日动态",
+      "种地吧何浩楠广州巡演首场顺利结束",
+      "种地吧王一珩发布说唱节目观后感",
+      "卓沅广州演唱会《Feel Like》双机位FOCUS下周发布",
+      "种地吧卓沅广州演唱会Day3预告",
+      "十个勤天贰零贰贰巡回演唱会"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 0,
+    "topicCount": 36,
+    "coverWord": "何浩",
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
+  },
   {
     "id": "131195802163871744",
     "date": "2026-07-19",
@@ -1219,116 +1329,6 @@ export const dailies: Daily[] = [
     "views": 4,
     "topicCount": 7,
     "coverWord": "种地",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
-  },
-  {
-    "id": "110522095095513088",
-    "date": "2026-05-23",
-    "week": "星期六",
-    "title": "鹭卓发布《小宇》彩排版直拍视频",
-    "snippet": "鹭卓放出《小宇》彩排直拍，打工仔的幕后宠粉时刻。",
-    "topTopics": [
-      "鹭卓发布《小宇》彩排版直拍视频",
-      "微博用户为鹭卓发布《小宇》练唱内容",
-      "种地吧鹭卓发布《超燃青春的合唱》和《all eyes on me》预告",
-      "蒋敦豪发布第二条以爱为主题的专辑宣传博文",
-      "种地吧鹭卓谈合唱《小宇》",
-      "「纯悦」夜宵节第五站杭州站预告"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 3,
-    "topicCount": 16,
-    "coverWord": "鹭卓",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
-  },
-  {
-    "id": "110158548972863488",
-    "date": "2026-05-22",
-    "week": "星期五",
-    "title": "蒋敦豪第二张专辑首单上线与创作分享",
-    "snippet": "蒋敦豪新专首单上线，白天种玫瑰晚上创作，歌单可能翻盘。",
-    "topTopics": [
-      "蒋敦豪第二张专辑首单上线与创作分享",
-      "蒋敦豪第二张全长个人创作专辑先行曲MV上线及成员生日祝福",
-      "赵小童发布小满日常博文",
-      "skip",
-      "种地吧卓沅启动石斛种植计划",
-      "蒋敦豪521生日特别活动"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 12,
-    "topicCount": 19,
-    "coverWord": "蒋敦",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
-    "coverWordColor": "#FAF5E6"
-  },
-  {
-    "id": "109796421183471616",
-    "date": "2026-05-21",
-    "week": "星期四",
-    "title": "种地吧蒋敦豪二专先行曲《我爱你推广大使》上线",
-    "snippet": "蒋敦豪二专先行曲上线，灵感源自雨林沙漠种玫瑰",
-    "topTopics": [
-      "种地吧蒋敦豪二专先行曲《我爱你推广大使》上线",
-      "蒋敦豪发布生日博文",
-      "520节日祝福",
-      "鹭卓新歌预告",
-      "十个勤天发布三周年合照视频",
-      "蒋敦豪发布第二张专辑先行曲《我爱你推广大使》"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 32,
-    "topicCount": 38,
-    "coverWord": "种地",
-    "coverBg": "#C25B3F",
-    "coverWordColor": "#FAF5E6"
-  },
-  {
-    "id": "109433440473972736",
-    "date": "2026-05-20",
-    "week": "星期三",
-    "title": "鹭卓微博发布520新歌",
-    "snippet": "鹭卓520卡点发布新歌《All Eyes On Me》，甩出三平台链接让你直接安排上了。",
-    "topTopics": [
-      "鹭卓微博发布520新歌",
-      "蒋敦豪第二张个人创作专辑先行曲《我爱你推广大使》发布预告",
-      "卓沅成为悦芙媞代言人",
-      "陈少熙戛纳工作记录",
-      "种地吧王一珩宣布618夏日歌会阵容官宣及连线计划",
-      "618夏日歌会官宣阵容，十个勤天摇人式官宣"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 39,
-    "topicCount": 25,
-    "coverWord": "鹭卓",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
-  },
-  {
-    "id": "109069418494951424",
-    "date": "2026-05-19",
-    "week": "星期二",
-    "title": "何浩楠新歌《晚安》预告",
-    "snippet": "何浩楠新歌《晚安》明夜零点上线，候鸟替他把独白唱成预告。",
-    "topTopics": [
-      "何浩楠新歌《晚安》预告",
-      "种地吧鹭卓发布鹭程刻度典藏卡牌礼盒预告",
-      "卓沅ChrisJames合作曲《Not Angry (夏夜告别)》预告",
-      "卓沅0616生日祝福帖文",
-      "何浩楠发布新歌《晚安》",
-      "种地吧4“518爱侬日”活动回顾"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 71,
-    "topicCount": 13,
-    "coverWord": "何浩",
     "coverBg": "#FAF5E6",
     "coverWordColor": "#3D2817"
   }
