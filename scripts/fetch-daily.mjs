@@ -14,8 +14,7 @@ function loadEnv() {
       if (m) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
     }
   } catch {
-    console.error('❌ 未找到 .env 文件,请按 .env.example 创建一份');
-    process.exit(1);
+    // 在 GitHub Actions 等环境中，凭据通过环境变量注入，不需要 .env 文件。
   }
 }
 loadEnv();
@@ -57,13 +56,28 @@ function pickSnippet(contentSummary) {
 
 async function fetchPage(start, end) {
   const url = `${BASE}/v1/meme/dailySummaries?planId=${PLAN_ID}&start=${start}&end=${end}&orderByDate=desc`;
-  const resp = await fetch(url, {
-    headers: { Authorization: `Bearer ${API_KEY}` },
-  });
-  if (!resp.ok) {
-    throw new Error(`HTTP ${resp.status}: ${await resp.text()}`);
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30_000);
+    try {
+      const resp = await fetch(url, {
+        headers: { Authorization: `Bearer ${API_KEY}` },
+        signal: controller.signal,
+      });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${await resp.text()}`);
+      return resp.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) {
+        console.warn(`第 ${attempt} 次拉取失败，5 秒后重试：${error.message}`);
+        await new Promise((resolve) => setTimeout(resolve, 5_000));
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
   }
-  return resp.json();
+  throw lastError;
 }
 
 function ensureDir(path) {

@@ -10,7 +10,7 @@
 import { spawnSync } from 'child_process';
 import { appendFileSync } from 'fs';
 
-const LOG = 'scripts/auto-update.log';
+const LOG = process.env.UPDATE_LOG_PATH || 'scripts/auto-update.log';
 
 function log(msg) {
   const line = `[${new Date().toISOString()}] ${msg}\n`;

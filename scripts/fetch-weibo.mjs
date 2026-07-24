@@ -6,10 +6,14 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 function loadEnv() {
-  const content = readFileSync('.env', 'utf8');
-  for (const line of content.split('\n')) {
-    const m = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*?)\s*$/i);
-    if (m) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
+  try {
+    const content = readFileSync('.env', 'utf8');
+    for (const line of content.split('\n')) {
+      const m = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*?)\s*$/i);
+      if (m) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
+    }
+  } catch {
+    // 在 GitHub Actions 等环境中，凭据通过环境变量注入，不需要 .env 文件。
   }
 }
 loadEnv();
@@ -90,13 +94,30 @@ function bjFromUtcIso(iso) {
 }
 
 async function fetchWeibo(userIds, since, until) {
-  const resp = await fetch('https://opensource.newsdiy.cn/api/v2/weibo/query', {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ sources: userIds, since, until, includeImages: true, limit: 200 }),
-  });
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${await resp.text()}`);
-  return resp.json();
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30_000);
+    try {
+      const resp = await fetch('https://opensource.newsdiy.cn/api/v2/weibo/query', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sources: userIds, since, until, includeImages: true, limit: 200 }),
+        signal: controller.signal,
+      });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}: ${await resp.text()}`);
+      return resp.json();
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) {
+        console.warn(`第 ${attempt} 次拉取失败，5 秒后重试：${error.message}`);
+        await new Promise((resolve) => setTimeout(resolve, 5_000));
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+  throw lastError;
 }
 
 const args = process.argv.slice(2);
