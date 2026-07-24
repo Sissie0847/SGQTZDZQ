@@ -1,6 +1,6 @@
 // 自动生成 - 来源 Memene 爬取系统 API /v2/weibo/query
 // 重新拉取: node scripts/fetch-weibo.mjs [date] [days]
-// 生成时间: 2026-07-24T16:49:44.417Z
+// 生成时间: 2026-07-24T18:48:47.935Z
 
 export type WeiboImage = {
   url: string;        // 缩略图(360w)
@@ -29,6 +29,112 @@ export type Weibo = {
 };
 
 export const weibos: Weibo[] = [
+  {
+    "id": "5324385229471910",
+    "publishedAt": "2026-07-24T17:57:03.000Z",
+    "date": "2026-07-25",
+    "timeHm": "01:57",
+    "sourceName": "种地吧陈少熙",
+    "sourceKind": "official",
+    "userId": "7747250546",
+    "text": "[语音2\"]请用最新版手机微博app收听原声\n这不是奥特曼嗷 这是十！\n十个勤天跟禾伙人\n禾勤九九\n分不开的就是分不开的\n#熙日记忆#",
+    "repostsCount": 500,
+    "commentsCount": 2544,
+    "attitudesCount": 6236,
+    "regionName": "发布于 广东",
+    "isRetweet": false,
+    "pageInfoType": "search_topic",
+    "images": [
+      {
+        "url": "https://wx1.sinaimg.cn/orj360/008siFLYgy1ifflx5y606j32ou1sk7wj.jpg",
+        "largeUrl": "https://wx1.sinaimg.cn/mw2000/008siFLYgy1ifflx5y606j32ou1sk7wj.jpg",
+        "width": 2048,
+        "height": 1365
+      }
+    ]
+  },
+  {
+    "id": "5324381289186031",
+    "publishedAt": "2026-07-24T17:41:24.000Z",
+    "date": "2026-07-25",
+    "timeHm": "01:41",
+    "sourceName": "种地吧鹭卓",
+    "sourceKind": "official",
+    "userId": "6045142049",
+    "text": "十个勤天 [鲜花][鲜花][鲜花]#十个勤天贰零贰贰巡回演唱会#   种地吧鹭卓的微博直播",
+    "repostsCount": 1014,
+    "commentsCount": 135833,
+    "attitudesCount": 6528,
+    "regionName": "发布于 广东",
+    "isRetweet": false,
+    "pageInfoType": "live",
+    "images": []
+  },
+  {
+    "id": "5324366637957515",
+    "publishedAt": "2026-07-24T16:43:11.000Z",
+    "date": "2026-07-25",
+    "timeHm": "00:43",
+    "sourceName": "种地吧李昊",
+    "sourceKind": "official",
+    "userId": "1774840083",
+    "text": "十个勤天从来不止四个字\n十个勤天与禾伙人们才是公司全称\n\n禾你 禾我 禾Ta\n要一起迎接晴天\n也要一起面对风雨\n十个都很爱禾\n禾也很爱十小个\n麦田有勤天，人间有禾伙[心]\n\n十个勤天",
+    "repostsCount": 5780,
+    "commentsCount": 16265,
+    "attitudesCount": 58911,
+    "regionName": "发布于 广东",
+    "isRetweet": false,
+    "pageInfoType": "topic",
+    "images": [
+      {
+        "url": "https://wx1.sinaimg.cn/orj360/69c9e913gy1iffjqfhshvj235s23gb2d.jpg",
+        "largeUrl": "https://wx1.sinaimg.cn/mw2000/69c9e913gy1iffjqfhshvj235s23gb2d.jpg",
+        "width": 2048,
+        "height": 1358
+      }
+    ]
+  },
+  {
+    "id": "5324362392804694",
+    "publishedAt": "2026-07-24T16:26:19.000Z",
+    "date": "2026-07-25",
+    "timeHm": "00:26",
+    "sourceName": "种地吧王一珩",
+    "sourceKind": "official",
+    "userId": "5955330603",
+    "text": "👨🌾",
+    "repostsCount": 5557,
+    "commentsCount": 7328,
+    "attitudesCount": 31638,
+    "regionName": "发布于 广东",
+    "isRetweet": false,
+    "images": [
+      {
+        "url": "https://wx1.sinaimg.cn/orj360/006v1Xxpgy1iffjo8d0poj30go0m8gnr.jpg",
+        "largeUrl": "https://wx1.sinaimg.cn/mw2000/006v1Xxpgy1iffjo8d0poj30go0m8gnr.jpg",
+        "width": 600,
+        "height": 800
+      },
+      {
+        "url": "https://wx4.sinaimg.cn/orj360/006v1Xxpgy1iffjo8o2l1j30go0m8767.jpg",
+        "largeUrl": "https://wx4.sinaimg.cn/mw2000/006v1Xxpgy1iffjo8o2l1j30go0m8767.jpg",
+        "width": 600,
+        "height": 800
+      },
+      {
+        "url": "https://wx3.sinaimg.cn/orj360/006v1Xxpgy1iffjob3wn0j32io3sg1kz.jpg",
+        "largeUrl": "https://wx3.sinaimg.cn/mw2000/006v1Xxpgy1iffjob3wn0j32io3sg1kz.jpg",
+        "width": 2048,
+        "height": 3082
+      },
+      {
+        "url": "https://wx2.sinaimg.cn/orj360/006v1Xxpgy1iffjobjslhj30go0m840e.jpg",
+        "largeUrl": "https://wx2.sinaimg.cn/mw2000/006v1Xxpgy1iffjobjslhj30go0m840e.jpg",
+        "width": 600,
+        "height": 800
+      }
+    ]
+  },
   {
     "id": "5324358521194026",
     "publishedAt": "2026-07-24T16:10:56.000Z",
@@ -5848,6 +5954,112 @@ export const weibos: Weibo[] = [
 
 export const weibosByDate: Record<string, Weibo[]> = {
   "2026-07-25": [
+    {
+      "id": "5324385229471910",
+      "publishedAt": "2026-07-24T17:57:03.000Z",
+      "date": "2026-07-25",
+      "timeHm": "01:57",
+      "sourceName": "种地吧陈少熙",
+      "sourceKind": "official",
+      "userId": "7747250546",
+      "text": "[语音2\"]请用最新版手机微博app收听原声\n这不是奥特曼嗷 这是十！\n十个勤天跟禾伙人\n禾勤九九\n分不开的就是分不开的\n#熙日记忆#",
+      "repostsCount": 500,
+      "commentsCount": 2544,
+      "attitudesCount": 6236,
+      "regionName": "发布于 广东",
+      "isRetweet": false,
+      "pageInfoType": "search_topic",
+      "images": [
+        {
+          "url": "https://wx1.sinaimg.cn/orj360/008siFLYgy1ifflx5y606j32ou1sk7wj.jpg",
+          "largeUrl": "https://wx1.sinaimg.cn/mw2000/008siFLYgy1ifflx5y606j32ou1sk7wj.jpg",
+          "width": 2048,
+          "height": 1365
+        }
+      ]
+    },
+    {
+      "id": "5324381289186031",
+      "publishedAt": "2026-07-24T17:41:24.000Z",
+      "date": "2026-07-25",
+      "timeHm": "01:41",
+      "sourceName": "种地吧鹭卓",
+      "sourceKind": "official",
+      "userId": "6045142049",
+      "text": "十个勤天 [鲜花][鲜花][鲜花]#十个勤天贰零贰贰巡回演唱会#   种地吧鹭卓的微博直播",
+      "repostsCount": 1014,
+      "commentsCount": 135833,
+      "attitudesCount": 6528,
+      "regionName": "发布于 广东",
+      "isRetweet": false,
+      "pageInfoType": "live",
+      "images": []
+    },
+    {
+      "id": "5324366637957515",
+      "publishedAt": "2026-07-24T16:43:11.000Z",
+      "date": "2026-07-25",
+      "timeHm": "00:43",
+      "sourceName": "种地吧李昊",
+      "sourceKind": "official",
+      "userId": "1774840083",
+      "text": "十个勤天从来不止四个字\n十个勤天与禾伙人们才是公司全称\n\n禾你 禾我 禾Ta\n要一起迎接晴天\n也要一起面对风雨\n十个都很爱禾\n禾也很爱十小个\n麦田有勤天，人间有禾伙[心]\n\n十个勤天",
+      "repostsCount": 5780,
+      "commentsCount": 16265,
+      "attitudesCount": 58911,
+      "regionName": "发布于 广东",
+      "isRetweet": false,
+      "pageInfoType": "topic",
+      "images": [
+        {
+          "url": "https://wx1.sinaimg.cn/orj360/69c9e913gy1iffjqfhshvj235s23gb2d.jpg",
+          "largeUrl": "https://wx1.sinaimg.cn/mw2000/69c9e913gy1iffjqfhshvj235s23gb2d.jpg",
+          "width": 2048,
+          "height": 1358
+        }
+      ]
+    },
+    {
+      "id": "5324362392804694",
+      "publishedAt": "2026-07-24T16:26:19.000Z",
+      "date": "2026-07-25",
+      "timeHm": "00:26",
+      "sourceName": "种地吧王一珩",
+      "sourceKind": "official",
+      "userId": "5955330603",
+      "text": "👨🌾",
+      "repostsCount": 5557,
+      "commentsCount": 7328,
+      "attitudesCount": 31638,
+      "regionName": "发布于 广东",
+      "isRetweet": false,
+      "images": [
+        {
+          "url": "https://wx1.sinaimg.cn/orj360/006v1Xxpgy1iffjo8d0poj30go0m8gnr.jpg",
+          "largeUrl": "https://wx1.sinaimg.cn/mw2000/006v1Xxpgy1iffjo8d0poj30go0m8gnr.jpg",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "url": "https://wx4.sinaimg.cn/orj360/006v1Xxpgy1iffjo8o2l1j30go0m8767.jpg",
+          "largeUrl": "https://wx4.sinaimg.cn/mw2000/006v1Xxpgy1iffjo8o2l1j30go0m8767.jpg",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "url": "https://wx3.sinaimg.cn/orj360/006v1Xxpgy1iffjob3wn0j32io3sg1kz.jpg",
+          "largeUrl": "https://wx3.sinaimg.cn/mw2000/006v1Xxpgy1iffjob3wn0j32io3sg1kz.jpg",
+          "width": 2048,
+          "height": 3082
+        },
+        {
+          "url": "https://wx2.sinaimg.cn/orj360/006v1Xxpgy1iffjobjslhj30go0m840e.jpg",
+          "largeUrl": "https://wx2.sinaimg.cn/mw2000/006v1Xxpgy1iffjobjslhj30go0m840e.jpg",
+          "width": 600,
+          "height": 800
+        }
+      ]
+    },
     {
       "id": "5324358521194026",
       "publishedAt": "2026-07-24T16:10:56.000Z",
