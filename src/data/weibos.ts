@@ -25,6 +25,7 @@ export type Weibo = {
   isRetweet: boolean;
   retweetId?: string;
   pageInfoType?: string;
+  pageInfoUrl?: string;
   images: WeiboImage[];
 };
 

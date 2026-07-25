@@ -169,6 +169,7 @@ const weibos = items.map((item) => {
     isRetweet: !!item.retweetId,
     retweetId: item.retweetId || undefined,
     pageInfoType: item.pageInfoType || undefined,
+    pageInfoUrl: item.pageInfoUrl || undefined,
     images: (item.images || []).map((img) => ({
       url: img.url,                                                       // 360w 缩略
       largeUrl: img.largeUrl,                                             // 2000w 大图
@@ -218,6 +219,7 @@ export type Weibo = {
   isRetweet: boolean;
   retweetId?: string;
   pageInfoType?: string;
+  pageInfoUrl?: string;
   images: WeiboImage[];
 };
 

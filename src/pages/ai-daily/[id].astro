@@ -162,6 +162,8 @@ function proxyImg(url: string): string {
             {dayWeibos.map((w) => {
               const meta = KIND_META[w.sourceKind] || KIND_META.unknown;
               const hasImages = w.images && w.images.length > 0;
+              const isVideo = w.pageInfoType === 'video';
+              const videoUrl = w.pageInfoUrl || weiboUrl(w.id);
               const account = accountsByUserId[w.userId];
               const avatarUrl = account?.avatar;
               const profileUrl = account?.profileUrl || `https://m.weibo.cn/u/${w.userId}`;
@@ -226,6 +228,18 @@ function proxyImg(url: string): string {
                           />
                         </a>
                       ))}
+                    </div>
+                  )}
+
+                  {isVideo && (
+                    <div class="mt-4 border border-[#e0c98c] bg-[#fdf6e3] px-4 py-3 flex items-center justify-between gap-4">
+                      <div>
+                        <p class="mag-sans text-xs uppercase tracking-widest text-[#8B6F47]">Video</p>
+                        <p class="mag-serif text-sm text-[#3D2817] mt-1">这条微博包含视频，请前往微博观看原视频。</p>
+                      </div>
+                      <a href={videoUrl} target="_blank" rel="noopener" class="shrink-0 mag-sans text-xs bg-[#E5A92D] text-[#1a1a1a] px-3 py-2 hover:opacity-90">
+                        观看视频 ↗
+                      </a>
                     </div>
                   )}
 
