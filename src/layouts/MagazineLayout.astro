@@ -234,7 +234,10 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
     <!-- Magazine 风 footer -->
     <footer class="mt-32 border-t border-[#e0d8c4] px-6 md:px-12 py-10 mag-sans text-sm text-[#5a5a5a]">
       <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
-        <div>禾勤久久 · 十个勤天少年之家 · 非官方粉丝站 · 数据来自 Memene 自动整理</div>
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span>禾勤久久 · 十个勤天少年之家 · 非官方粉丝站 · 数据来自 Memene 自动整理</span>
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" class="hover:mag-red">浙ICP备2026060100号-1</a>
+        </div>
         <div class="flex gap-4">
           <a href="/" class="hover:mag-red">回到主页</a>
           <a href="/about" class="hover:mag-red">关于</a>
