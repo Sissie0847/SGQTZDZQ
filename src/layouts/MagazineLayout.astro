@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = '十个勤天 · 少年之家',
+  title = '禾勤久久 · 十个勤天少年之家',
   description = 'Memene 每天自动整理十个哥哥和助手号的更新,经济学人 magazine 版式呈现。日报 + 日历 + 通知 + 物料,一站汇总。',
 } = Astro.props;
 
@@ -215,7 +215,7 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
     <!-- 顶部 site-wide nav -->
     <header class="border-b border-[#e0d8c4] px-6 md:px-12 py-4 flex items-center justify-between text-sm">
       <a href="/" class="mag-serif italic font-semibold text-[1.1rem] text-[#121212] hover:mag-red">
-        十个勤天 · 少年之家
+        禾勤久久 · 十个勤天少年之家
       </a>
       <nav class="flex gap-6 mag-sans text-[#3a3a3a]">
         <a href="/ai-daily" class={isActive('/ai-daily') ? 'mag-red font-medium' : 'hover:mag-red'}>日报</a>
@@ -234,7 +234,7 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
     <!-- Magazine 风 footer -->
     <footer class="mt-32 border-t border-[#e0d8c4] px-6 md:px-12 py-10 mag-sans text-sm text-[#5a5a5a]">
       <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
-        <div>十个勤天 · 少年之家 · 非官方粉丝站 · 数据来自 Memene 自动整理</div>
+        <div>禾勤久久 · 十个勤天少年之家 · 非官方粉丝站 · 数据来自 Memene 自动整理</div>
         <div class="flex gap-4">
           <a href="/" class="hover:mag-red">回到主页</a>
           <a href="/about" class="hover:mag-red">关于</a>

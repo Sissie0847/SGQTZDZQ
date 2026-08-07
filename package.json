@@ -3,20 +3,23 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": "24.x"
+    "node": ">=22 <25"
   },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "fetch:daily": "node scripts/fetch-daily.mjs",
     "fetch:weibo": "node scripts/fetch-weibo.mjs"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.5",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vercel": "^9.0.5",
     "astro": "^5.18.2",
     "tailwindcss": "^3.4.17"
-  }
+  },
+  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
 }
