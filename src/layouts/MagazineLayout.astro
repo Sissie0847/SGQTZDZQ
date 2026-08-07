@@ -11,6 +11,8 @@ const {
   description = 'Memene 每天自动整理十个哥哥和助手号的更新,经济学人 magazine 版式呈现。日报 + 日历 + 通知 + 物料,一站汇总。',
 } = Astro.props;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://shaonianzhijia.cn').toString();
+
 // 动态高亮当前 nav
 const path = Astro.url.pathname;
 const isActive = (p: string) => path === p || path.startsWith(p + '/');
@@ -21,6 +23,13 @@ const isActive = (p: string) => path === p || path.startsWith(p + '/');
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="禾勤久久" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
 
