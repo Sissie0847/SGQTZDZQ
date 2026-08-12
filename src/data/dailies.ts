@@ -1,6 +1,6 @@
 // 自动生成 - 来源 Memene API /v1/meme/dailySummaries
 // 重新拉取: npm run fetch:daily
-// 生成时间: 2026-08-11T18:08:56.745Z
+// 生成时间: 2026-08-12T18:09:16.412Z
 
 export type Daily = {
   id: string;
@@ -20,6 +20,28 @@ export type Daily = {
 
 export const dailies: Daily[] = [
   {
+    "id": "139878102036643840",
+    "date": "2026-08-12",
+    "week": "星期三",
+    "title": "卓沅新歌《BrokenTrust》正式上线",
+    "snippet": "卓沅新歌《BrokenTrust》已同步登陆QQ音乐等平台。",
+    "topTopics": [
+      "卓沅新歌《BrokenTrust》正式上线",
+      "赵小童发文：文武双拳进度加载中",
+      "李耕耘预告润百颜直播活动",
+      "卓沅节目相关预告",
+      "何浩楠行车记录仪将开启HE时直播并拉黑老板防走漏风声",
+      "蒋敦豪与润百颜合作直播预告"
+    ],
+    "sourceLabel": "十个勤天",
+    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
+    "views": 0,
+    "topicCount": 10,
+    "coverWord": "卓沅",
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
+  },
+  {
     "id": "139515984175169536",
     "date": "2026-08-11",
     "week": "星期二",
@@ -38,8 +60,8 @@ export const dailies: Daily[] = [
     "views": 1,
     "topicCount": 14,
     "coverWord": "王一",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "139151793178279936",
@@ -60,7 +82,7 @@ export const dailies: Daily[] = [
     "views": 0,
     "topicCount": 15,
     "coverWord": "赵一",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -82,7 +104,7 @@ export const dailies: Daily[] = [
     "views": 0,
     "topicCount": 13,
     "coverWord": "何浩",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -104,8 +126,8 @@ export const dailies: Daily[] = [
     "views": 0,
     "topicCount": 28,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "138063741785735168",
@@ -126,8 +148,8 @@ export const dailies: Daily[] = [
     "views": 9,
     "topicCount": 17,
     "coverWord": "何浩",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "137700863048155136",
@@ -148,8 +170,8 @@ export const dailies: Daily[] = [
     "views": 2,
     "topicCount": 15,
     "coverWord": "鹭卓",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "137338922266001408",
@@ -170,7 +192,7 @@ export const dailies: Daily[] = [
     "views": 5,
     "topicCount": 8,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -192,7 +214,7 @@ export const dailies: Daily[] = [
     "views": 5,
     "topicCount": 18,
     "coverWord": "何浩",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -214,8 +236,8 @@ export const dailies: Daily[] = [
     "views": 0,
     "topicCount": 13,
     "coverWord": "蒋敦",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "135930969709346816",
@@ -233,11 +255,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 4,
+    "views": 6,
     "topicCount": 20,
     "coverWord": "种地",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "135527060171915264",
@@ -255,11 +277,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 7,
+    "views": 9,
     "topicCount": 20,
     "coverWord": "种地",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "135193049641779200",
@@ -280,7 +302,7 @@ export const dailies: Daily[] = [
     "views": 7,
     "topicCount": 25,
     "coverWord": "李昊",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -299,10 +321,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 6,
+    "views": 7,
     "topicCount": 25,
     "coverWord": "李昊",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -319,11 +341,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 11,
+    "views": 12,
     "topicCount": 4,
     "coverWord": "十个",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "134437459701268480",
@@ -341,11 +363,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 5,
+    "views": 6,
     "topicCount": 30,
     "coverWord": "种地",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "134075133001203712",
@@ -366,8 +388,8 @@ export const dailies: Daily[] = [
     "views": 5,
     "topicCount": 19,
     "coverWord": "跳过",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "133733662138040320",
@@ -388,7 +410,7 @@ export const dailies: Daily[] = [
     "views": 2,
     "topicCount": 36,
     "coverWord": "种地",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -407,10 +429,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 8,
+    "views": 9,
     "topicCount": 28,
     "coverWord": "粉丝",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -432,8 +454,8 @@ export const dailies: Daily[] = [
     "views": 6,
     "topicCount": 17,
     "coverWord": "李昊",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "132624859032190976",
@@ -451,11 +473,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 9,
+    "views": 11,
     "topicCount": 15,
     "coverWord": "李昊",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "132261386645405696",
@@ -473,11 +495,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 6,
+    "views": 7,
     "topicCount": 10,
     "coverWord": "何浩",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "131899071303516160",
@@ -495,10 +517,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 8,
+    "views": 10,
     "topicCount": 18,
     "coverWord": "蒋敦",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -520,7 +542,7 @@ export const dailies: Daily[] = [
     "views": 5,
     "topicCount": 36,
     "coverWord": "何浩",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -539,11 +561,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 17,
+    "views": 18,
     "topicCount": 49,
     "coverWord": "种地",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "130833714983731200",
@@ -564,8 +586,8 @@ export const dailies: Daily[] = [
     "views": 5,
     "topicCount": 32,
     "coverWord": "种地",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "130449776905814016",
@@ -583,11 +605,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 7,
+    "views": 8,
     "topicCount": 15,
     "coverWord": "鹭卓",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "130089125326880768",
@@ -608,7 +630,7 @@ export const dailies: Daily[] = [
     "views": 10,
     "topicCount": 18,
     "coverWord": "蒋敦",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -627,10 +649,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 9,
+    "views": 11,
     "topicCount": 13,
     "coverWord": "蒋敦",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -652,8 +674,8 @@ export const dailies: Daily[] = [
     "views": 8,
     "topicCount": 17,
     "coverWord": "鹭卓",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "129000433086627840",
@@ -671,11 +693,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 6,
+    "views": 7,
     "topicCount": 34,
     "coverWord": "鹭卓",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "128659293753835520",
@@ -696,8 +718,8 @@ export const dailies: Daily[] = [
     "views": 6,
     "topicCount": 25,
     "coverWord": "鹭卓",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "128296176553295872",
@@ -718,7 +740,7 @@ export const dailies: Daily[] = [
     "views": 6,
     "topicCount": 26,
     "coverWord": "赵小",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -737,10 +759,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 7,
+    "views": 11,
     "topicCount": 30,
     "coverWord": "种地",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -759,11 +781,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 13,
+    "views": 14,
     "topicCount": 27,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "127188831685312512",
@@ -777,11 +799,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 10,
+    "views": 11,
     "topicCount": 2,
     "coverWord": "鹭卓",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "126825588924088320",
@@ -802,8 +824,8 @@ export const dailies: Daily[] = [
     "views": 11,
     "topicCount": 41,
     "coverWord": "鹭卓",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "126463829604302848",
@@ -824,7 +846,7 @@ export const dailies: Daily[] = [
     "views": 7,
     "topicCount": 60,
     "coverWord": "李昊",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -846,7 +868,7 @@ export const dailies: Daily[] = [
     "views": 4,
     "topicCount": 40,
     "coverWord": "十个",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -868,8 +890,8 @@ export const dailies: Daily[] = [
     "views": 12,
     "topicCount": 33,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "125014813981016064",
@@ -887,11 +909,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 14,
+    "views": 16,
     "topicCount": 32,
     "coverWord": "李昊",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "124651925231632384",
@@ -909,11 +931,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 12,
+    "views": 13,
     "topicCount": 26,
     "coverWord": "种地",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "124288911886254080",
@@ -934,7 +956,7 @@ export const dailies: Daily[] = [
     "views": 13,
     "topicCount": 32,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -956,7 +978,7 @@ export const dailies: Daily[] = [
     "views": 8,
     "topicCount": 46,
     "coverWord": "种地",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -978,8 +1000,8 @@ export const dailies: Daily[] = [
     "views": 6,
     "topicCount": 41,
     "coverWord": "种地",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "123223911511883776",
@@ -997,11 +1019,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 5,
+    "views": 8,
     "topicCount": 36,
     "coverWord": "鹭卓",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "122840301738917888",
@@ -1022,8 +1044,8 @@ export const dailies: Daily[] = [
     "views": 9,
     "topicCount": 20,
     "coverWord": "毕业",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "122478798527528960",
@@ -1041,10 +1063,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 10,
+    "views": 11,
     "topicCount": 23,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1066,7 +1088,7 @@ export const dailies: Daily[] = [
     "views": 11,
     "topicCount": 21,
     "coverWord": "蒋敦",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1088,8 +1110,8 @@ export const dailies: Daily[] = [
     "views": 10,
     "topicCount": 8,
     "coverWord": "赵小",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "121389175722213376",
@@ -1107,11 +1129,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 19,
+    "views": 20,
     "topicCount": 21,
     "coverWord": "卓沅",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "121049451258183680",
@@ -1132,8 +1154,8 @@ export const dailies: Daily[] = [
     "views": 15,
     "topicCount": 22,
     "coverWord": "卓沅",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "120687242564861952",
@@ -1154,7 +1176,7 @@ export const dailies: Daily[] = [
     "views": 12,
     "topicCount": 20,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1173,10 +1195,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 18,
+    "views": 19,
     "topicCount": 17,
     "coverWord": "鹭卓",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1195,11 +1217,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 24,
+    "views": 25,
     "topicCount": 10,
     "coverWord": "何浩",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
+    "coverBg": "#FAF5E6",
+    "coverWordColor": "#3D2817"
   },
   {
     "id": "119580148335902720",
@@ -1217,11 +1239,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 26,
+    "views": 27,
     "topicCount": 12,
     "coverWord": "卓沅",
-    "coverBg": "#FAF5E6",
-    "coverWordColor": "#3D2817"
+    "coverBg": "#E5A92D",
+    "coverWordColor": "#1a1a1a"
   },
   {
     "id": "119216137975103488",
@@ -1239,11 +1261,11 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 24,
+    "views": 25,
     "topicCount": 21,
     "coverWord": "卓沅",
-    "coverBg": "#E5A92D",
-    "coverWordColor": "#1a1a1a"
+    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverWordColor": "#FAF5E6"
   },
   {
     "id": "118852260355637248",
@@ -1261,10 +1283,10 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 13,
+    "views": 14,
     "topicCount": 12,
     "coverWord": "卓沅",
-    "coverBg": "linear-gradient(180deg, #6B8E23 0%, #4a6e1a 100%)",
+    "coverBg": "#C25B3F",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1286,7 +1308,7 @@ export const dailies: Daily[] = [
     "views": 14,
     "topicCount": 15,
     "coverWord": "卓沅",
-    "coverBg": "#C25B3F",
+    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
     "coverWordColor": "#FAF5E6"
   },
   {
@@ -1305,31 +1327,9 @@ export const dailies: Daily[] = [
     ],
     "sourceLabel": "十个勤天",
     "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 10,
+    "views": 11,
     "topicCount": 16,
     "coverWord": "卓沅",
-    "coverBg": "linear-gradient(135deg, #8B6F47 0%, #C9A875 100%)",
-    "coverWordColor": "#FAF5E6"
-  },
-  {
-    "id": "117767263167184896",
-    "date": "2026-06-12",
-    "week": "星期五",
-    "title": "何浩楠发起美食投票",
-    "snippet": "何浩楠发起投票选最爱菜，重点提芋泥啵啵猪。",
-    "topTopics": [
-      "何浩楠发起美食投票",
-      "李耕耘宣布首场生日会将于7月11日在上海举行",
-      "种地吧卓沅预告纯悦夜宵节兰州站活动",
-      "何浩楠称赞西双版纳水果好吃",
-      "赵小童分享版纳夜景照片",
-      "赵一博粉丝生日应援博文"
-    ],
-    "sourceLabel": "十个勤天",
-    "channelAvatar": "http://newsdiy-normal-picture.oss-cn-hangzhou.aliyuncs.com/images/1751269874199-159375797",
-    "views": 29,
-    "topicCount": 21,
-    "coverWord": "何浩",
     "coverBg": "#FAF5E6",
     "coverWordColor": "#3D2817"
   }
